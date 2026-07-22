@@ -1,0 +1,98 @@
+[gd_scene format=3 uid="uid://biqmgskog10yw"]
+
+[ext_resource type="Texture2D" uid="uid://buwokmo3bhemc" path="res://Assets/Trees/Tree1.png" id="1_mhtsl"]
+[ext_resource type="Script" uid="uid://biwgbv30gu75a" path="res://Scripts/Game.gd" id="1_w51g1"]
+[ext_resource type="Script" uid="uid://1rroforyij0" path="res://Scripts/Animations.gd" id="2_03iqk"]
+[ext_resource type="Script" uid="uid://d3tp6d7pfopum" path="res://Scripts/Stats.gd" id="3_4jv7b"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wu0wg"]
+bg_color = Color(0.1274736, 5.4050834e-05, 0.4450559, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4jv7b"]
+bg_color = Color(0.08827009, 0, 0.295882, 1)
+
+[node name="Game" type="Control" unique_id=2118027152]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_w51g1")
+
+[node name="LeftPanel" type="Panel" parent="." unique_id=10952138]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 937.0
+grow_vertical = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_wu0wg")
+
+[node name="MarginContainer" type="MarginContainer" parent="LeftPanel" unique_id=1668116219]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_03iqk")
+
+[node name="Stats" type="VBoxContainer" parent="LeftPanel/MarginContainer" unique_id=798621790]
+layout_mode = 2
+script = ExtResource("3_4jv7b")
+
+[node name="HBoxContainer" type="VBoxContainer" parent="LeftPanel/MarginContainer/Stats" unique_id=1584100852]
+layout_mode = 2
+alignment = 1
+
+[node name="MoneyLabel" type="Label" parent="LeftPanel/MarginContainer/Stats/HBoxContainer" unique_id=1234893310]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "money : 0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MoneyPerSecLabel" type="Label" parent="LeftPanel/MarginContainer/Stats/HBoxContainer" unique_id=1189066445]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Gold/s: 0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="LeftPanel/MarginContainer" unique_id=1546141177]
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="LeftPanel/MarginContainer/CenterContainer" unique_id=559816588]
+custom_minimum_size = Vector2(400, 400)
+layout_mode = 2
+texture_normal = ExtResource("1_mhtsl")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="RightPanel" type="Panel" parent="." unique_id=1600323006]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -215.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_4jv7b")
+
+[node name="UpgradesLabel" type="Label" parent="RightPanel" unique_id=1788668056]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -37.0
+offset_right = 37.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "Upgrades"
+
+[connection signal="money_changed" from="." to="LeftPanel/MarginContainer/Stats" method="_on_game_money_changed"]
+[connection signal="button_down" from="LeftPanel/MarginContainer/CenterContainer/TextureButton" to="." method="_on_texture_button_button_down"]
+[connection signal="button_down" from="LeftPanel/MarginContainer/CenterContainer/TextureButton" to="LeftPanel/MarginContainer" method="_on_texture_button_button_down"]
+[connection signal="button_up" from="LeftPanel/MarginContainer/CenterContainer/TextureButton" to="LeftPanel/MarginContainer" method="_on_texture_button_button_up"]
