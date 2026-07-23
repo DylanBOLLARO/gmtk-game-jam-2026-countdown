@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="Farmer" format=3 uid="uid://dt6hb4jmsodwk"]
+
+[ext_resource type="Texture2D" uid="uid://dxtbo8nrvhgnt" path="res://Assets/Woodcutter.png" id="1_rbp4g"]
+[ext_resource type="Script" uid="uid://cj11ytmvpx5b8" path="res://Scripts/Resources/Farmer.gd" id="1_v5ag4"]
+[ext_resource type="Script" uid="uid://gaobe04oqi7a" path="res://Scripts/Resources/FarmerState.gd" id="3_ea0ug"]
+
+[sub_resource type="Resource" id="Resource_rbp4g"]
+script = ExtResource("3_ea0ug")
+gold_per_second = 15.0
+gold_multiplier = 1.0
+metadata/_custom_type_script = "uid://gaobe04oqi7a"
+
+[resource]
+script = ExtResource("1_v5ag4")
+stats = SubResource("Resource_rbp4g")
+type = 1
+id = "woodcutter"
+name = "Woodcutter"
+description = "Woodcutter"
+icon = ExtResource("1_rbp4g")
+cost = 20
+metadata/_custom_type_script = "uid://cj11ytmvpx5b8"

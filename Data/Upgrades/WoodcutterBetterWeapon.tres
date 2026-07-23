@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="Upgrade" format=3 uid="uid://pixowinbmr56"]
+
+[ext_resource type="Texture2D" uid="uid://clyg60fx6nuig" path="res://Assets/11.png" id="1_jmgra"]
+[ext_resource type="Script" uid="uid://rkk4bhos55pe" path="res://Scripts/Resources/Upgrade.gd" id="1_t0g1w"]
+[ext_resource type="Script" uid="uid://gaobe04oqi7a" path="res://Scripts/Resources/FarmerState.gd" id="3_jmgra"]
+
+[sub_resource type="Resource" id="Resource_wir60"]
+script = ExtResource("3_jmgra")
+gold_multiplier = 2.0
+metadata/_custom_type_script = "uid://gaobe04oqi7a"
+
+[resource]
+script = ExtResource("1_t0g1w")
+stats = SubResource("Resource_wir60")
+apply_to = Array[int]([1])
+id = "woodcutter-better-weapon"
+name = "Woodcutter Better Weapon"
+description = "Woodcutter Better Weapon"
+icon = ExtResource("1_jmgra")
+cost = 200
+metadata/_custom_type_script = "uid://rkk4bhos55pe"

@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="Upgrade" format=3 uid="uid://ch1agac7am1o2"]
+
+[ext_resource type="Texture2D" uid="uid://ca47y4xmrin1m" path="res://Assets/Weapon.png" id="1_fadnw"]
+[ext_resource type="Script" uid="uid://rkk4bhos55pe" path="res://Scripts/Resources/Upgrade.gd" id="2_hsfuv"]
+[ext_resource type="Script" uid="uid://bok14mhou30lt" path="res://Scripts/Resources/PlayerStats.gd" id="3_hsfuv"]
+
+[sub_resource type="Resource" id="Resource_hsfuv"]
+script = ExtResource("3_hsfuv")
+click_amount = 0.0
+metadata/_custom_type_script = "uid://bok14mhou30lt"
+
+[resource]
+script = ExtResource("2_hsfuv")
+stats = SubResource("Resource_hsfuv")
+apply_to = Array[int]([0])
+id = "better-ax"
+name = "Better ax"
+description = "Better ax"
+icon = ExtResource("1_fadnw")
+cost = 50
+metadata/_custom_type_script = "uid://rkk4bhos55pe"

@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="Upgrade" format=3 uid="uid://cpl7b2inearfj"]
+
+[ext_resource type="Texture2D" uid="uid://bq4p6un7272bv" path="res://Assets/10.png" id="1_ciibc"]
+[ext_resource type="Script" uid="uid://rkk4bhos55pe" path="res://Scripts/Resources/Upgrade.gd" id="1_kk6jr"]
+[ext_resource type="Script" uid="uid://gaobe04oqi7a" path="res://Scripts/Resources/FarmerState.gd" id="3_ciibc"]
+
+[sub_resource type="Resource" id="Resource_gw01v"]
+script = ExtResource("3_ciibc")
+gold_multiplier = 2.0
+metadata/_custom_type_script = "uid://gaobe04oqi7a"
+
+[resource]
+script = ExtResource("1_kk6jr")
+stats = SubResource("Resource_gw01v")
+apply_to = Array[int]([2])
+id = "minotaur-better-weapon"
+name = "Minotaur Better Weapon"
+description = "Minotaur Better Weapon"
+icon = ExtResource("1_ciibc")
+cost = 350
+metadata/_custom_type_script = "uid://rkk4bhos55pe"
