@@ -1,0 +1,120 @@
+[gd_scene format=3 uid="uid://dvrd752gyy35l"]
+
+[ext_resource type="FontFile" uid="uid://dvr2m4urmb23h" path="res://Assets/Font/PixelifySans-VariableFont_wght.ttf" id="1_tfeq1"]
+[ext_resource type="Texture2D" uid="uid://brto0g3ur3047" path="res://Assets/Buttons/button1_default.png" id="2_tafl8"]
+[ext_resource type="Texture2D" uid="uid://8j24mtesogkr" path="res://Assets/Buttons/button1_pressed.png" id="3_4aexr"]
+[ext_resource type="Texture2D" uid="uid://cy3c01hsjaxlj" path="res://Assets/Buttons/button1_hoever.png" id="4_ebm2f"]
+
+[node name="Mainmenu" type="Control" unique_id=616374830]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1096828082]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Game Title" type="Label" parent="." unique_id=2106503184]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -137.5
+offset_top = 75.0
+offset_right = 137.5
+offset_bottom = 139.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("1_tfeq1")
+theme_override_font_sizes/font_size = 64
+text = "Game Name"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=905130948]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -117.0
+offset_top = -96.0
+offset_right = 117.0
+offset_bottom = 176.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="Play" type="TextureButton" parent="VBoxContainer" unique_id=1979341939]
+layout_mode = 2
+texture_normal = ExtResource("2_tafl8")
+texture_pressed = ExtResource("3_4aexr")
+texture_hover = ExtResource("4_ebm2f")
+
+[node name="PlayLabel" type="Label" parent="VBoxContainer/Play" unique_id=28718926]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_tfeq1")
+theme_override_font_sizes/font_size = 40
+text = "Play"
+
+[node name="Credits" type="TextureButton" parent="VBoxContainer" unique_id=192346891]
+layout_mode = 2
+texture_normal = ExtResource("2_tafl8")
+texture_pressed = ExtResource("3_4aexr")
+texture_hover = ExtResource("4_ebm2f")
+
+[node name="CreditsLabel" type="Label" parent="VBoxContainer/Credits" unique_id=2107655289]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_tfeq1")
+theme_override_font_sizes/font_size = 40
+text = "Credits"
+
+[node name="Exit" type="TextureButton" parent="VBoxContainer" unique_id=713633295]
+layout_mode = 2
+texture_normal = ExtResource("2_tafl8")
+texture_pressed = ExtResource("3_4aexr")
+texture_hover = ExtResource("4_ebm2f")
+
+[node name="ExitLabel" type="Label" parent="VBoxContainer/Exit" unique_id=141642254]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_tfeq1")
+theme_override_font_sizes/font_size = 40
+text = "Exit"
