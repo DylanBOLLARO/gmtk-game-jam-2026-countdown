@@ -4,6 +4,7 @@ extends Control
 @onready var gold_label: Label = $HBoxContainer/LeftPanel/MarginContainer/Stats/HBoxContainer/GoldLabel
 @onready var farmers_container: VBoxContainer = $HBoxContainer/RightPanel/MarginContainer/VBoxContainer/Farmers/FarmersContainer
 @onready var upgrades_container: VBoxContainer = $HBoxContainer/RightPanel/MarginContainer/VBoxContainer/Upgrades/UpgradesContainer
+@export var button_scene: PackedScene
 
 # variables
 # --- handle click 
@@ -16,29 +17,43 @@ var amount_farm_multiplier: float = 1
 var timer := Timer.new()
 const save_path = "user://userdata.save"
 
-var button_scene = preload("res://Scene/PurchaseItem.tscn")
-var all_farmers = load_resources("res://Data/Farmers/")
-var all_upgrades = load_resources("res://Data/Upgrades/")
+
+
+var all_farmers = [
+	preload("res://Data/Farmers/Minotaur.tres"),
+	preload("res://Data/Farmers/Woodcutter.tres"),
+]
+
+var all_upgrades = [
+	preload("res://Data/Upgrades/BetterAx.tres"),
+	preload("res://Data/Upgrades/MinotaurBetterWeapon.tres"),
+	preload("res://Data/Upgrades/WoodcutterBetterWeapon.tres"),
+]
+
 
 func load_resources(path: String) -> Array:
 	var resources = []
-
+	print("📁 Attempting to load from: ", path)
+	
 	var dir = DirAccess.open(path)
-
 	if dir:
+		print("✅ Directory opened successfully")
 		dir.list_dir_begin()
-
 		var file_name = dir.get_next()
-
+		var count = 0
 		while file_name != "":
+			print("  Found file: ", file_name)
 			if file_name.ends_with(".tres"):
 				var resource = load(path + "/" + file_name)
+				print("    Loaded: ", resource)
 				resources.append(resource)
-
+				count += 1
 			file_name = dir.get_next()
-
 		dir.list_dir_end()
-
+		print("✅ Loaded ", count, " resources")
+	else:
+		print("❌ FAILED to open directory: ", path)
+	
 	return resources
 
 func update_ui_gold():
@@ -90,8 +105,6 @@ func generate_all_farmers():
 		return a.cost < b.cost
 	)
 	
-	print("DEBUG generate_all_farmers")
-	
 	# generate all items in list
 	for item in sorted:
 		var hbox = HBoxContainer.new()
@@ -121,6 +134,13 @@ func generate_all_farmers():
 		farmers_container.add_child(hbox)
 
 func _ready() -> void:
+	print("🔍 EXPORT DEBUG - Windows")
+	print("button_scene path: ", button_scene)
+	print("button_scene exists: ", button_scene != null)
+	print("button_scene instantiate works: ", button_scene.instantiate() != null if button_scene else "NULL")
+	print("all_upgrades size: ", all_upgrades.size())
+	print("all_farmers size: ", all_farmers.size())
+	
 	player_stats.click_amount = 50
 	
 	timer.wait_time = 1
