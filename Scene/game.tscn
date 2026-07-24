@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://buwokmo3bhemc" path="res://Assets/Trees/Tree1.png" id="1_mhtsl"]
 [ext_resource type="Script" uid="uid://biwgbv30gu75a" path="res://Scripts/Game.gd" id="1_w51g1"]
 [ext_resource type="Script" uid="uid://1rroforyij0" path="res://Scripts/Animations.gd" id="2_03iqk"]
+[ext_resource type="PackedScene" uid="uid://d1xqtaxjiigr6" path="res://Scene/PurchaseItem.tscn" id="2_ihreq"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_km7ha"]
 bg_color = Color(0.23137255, 0.15294118, 0.6, 1)
@@ -18,6 +19,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_w51g1")
+button_scene = ExtResource("2_ihreq")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=189513577]
 layout_mode = 1
