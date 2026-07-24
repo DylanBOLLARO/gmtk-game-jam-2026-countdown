@@ -7,7 +7,6 @@
 [sub_resource type="Resource" id="Resource_5tn2y"]
 script = ExtResource("3_gep6o")
 gold_per_second = 50.0
-gold_multiplier = 1.0
 metadata/_custom_type_script = "uid://gaobe04oqi7a"
 
 [resource]
