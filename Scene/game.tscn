@@ -1,7 +1,5 @@
 [gd_scene format=3 uid="uid://cav0wf4spwk1e"]
 
-[ext_resource type="Script" uid="uid://biwgbv30gu75a" path="res://Scripts/Game.gd" id="1_ivtx6"]
-[ext_resource type="PackedScene" uid="uid://d1xqtaxjiigr6" path="res://Scene/PurchaseItem.tscn" id="2_3xgnh"]
 [ext_resource type="Texture2D" uid="uid://bn5tujghrwocj" path="res://Assets/Images/ForestA.png" id="3_nspe4"]
 [ext_resource type="Texture2D" uid="uid://bf77rnonejbhv" path="res://Assets/UI/countbar.png" id="3_tujvx"]
 [ext_resource type="Texture2D" uid="uid://dsg0lfrmn435q" path="res://Assets/UI/healthbar.png" id="4_2j816"]
@@ -13,6 +11,7 @@
 [ext_resource type="Script" uid="uid://b56xogve14e80" path="res://Scripts/Managers/EconomyManager.gd" id="6_48ymf"]
 [ext_resource type="AudioStream" uid="uid://0skkb7m10j6l" path="res://Assets/Sounds/wood_sound.mp3" id="7_48ymf"]
 [ext_resource type="Script" uid="uid://bfr0f8w8sxfwf" path="res://Scripts/Managers/PurchaseManager.gd" id="11_jwmyi"]
+[ext_resource type="Script" uid="uid://celymo7ohhnj2" path="res://Scripts/Managers/SaveManager.gd" id="13_nspe4"]
 [ext_resource type="AudioStream" uid="uid://dcy3t42baj5wd" path="res://Assets/Sounds/calm_forest_ending_thing.wav" id="14_aawhf"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nspe4"]
@@ -51,8 +50,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_ivtx6")
-button_scene = ExtResource("2_3xgnh")
 metadata/_edit_use_anchors_ = true
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=2046762712]
@@ -273,6 +270,10 @@ metadata/_custom_type_script = "uid://b56xogve14e80"
 [node name="PurchaseManager" type="Node" parent="." unique_id=268808432]
 script = ExtResource("11_jwmyi")
 metadata/_custom_type_script = "uid://bfr0f8w8sxfwf"
+
+[node name="SaveManager" type="Node" parent="." unique_id=275233702]
+script = ExtResource("13_nspe4")
+metadata/_custom_type_script = "uid://celymo7ohhnj2"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=319658277]
 stream = ExtResource("7_48ymf")

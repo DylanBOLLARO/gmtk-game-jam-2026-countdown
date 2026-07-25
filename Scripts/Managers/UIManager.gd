@@ -21,14 +21,14 @@ signal on_player_click_on_tree
 var button_scene: PackedScene = preload("uid://d1xqtaxjiigr6")
 
 var all_farmers = [
-	preload("res://Data/Farmers/Minotaur.tres"),
 	preload("res://Data/Farmers/Woodcutter.tres"),
-	preload("res://Data/Farmers/Woodcutter2.tres"),
-	preload("res://Data/Farmers/Woodcutter3.tres"),
-	preload("res://Data/Farmers/Woodcutter4.tres"),
-	preload("res://Data/Farmers/Woodcutter5.tres"),
-	preload("res://Data/Farmers/Woodcutter6.tres"),
-	preload("res://Data/Farmers/Woodcutter7.tres"),
+	#preload("res://Data/Farmers/Minotaur.tres"),
+	#preload("res://Data/Farmers/Woodcutter2.tres"),
+	#preload("res://Data/Farmers/Woodcutter3.tres"),
+	#preload("res://Data/Farmers/Woodcutter4.tres"),
+	#preload("res://Data/Farmers/Woodcutter5.tres"),
+	#preload("res://Data/Farmers/Woodcutter6.tres"),
+	#preload("res://Data/Farmers/Woodcutter7.tres"),
 ]
 
 func init_ui():

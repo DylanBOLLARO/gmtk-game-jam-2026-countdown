@@ -3,11 +3,12 @@ class_name TreeManager
 
 @onready var ui_manager: UIManager = get_tree().current_scene.get_node("UIManager")
 @onready var economy_manager: EconomyManager = get_tree().current_scene.get_node("EconomyManager")
+@onready var save_manager: SaveManager = $"../SaveManager"
 
 @onready var texture_button: TextureButton = $"../HBoxContainer/LeftPanel/MarginContainer/CenterContainer/TextureButton"
 
 var total_trees_on_earth: int = 3_040_000_000_000
-var total_trees_cut_down: int = 0
+var total_trees_cut_down: int
 var current_path = null
 var current_tree_hp: float = 0
 var current_tree_max_hp: float = 0
@@ -39,9 +40,11 @@ func generate_tree_stats():
 	current_tree_hp = current_tree_max_hp
 	
 func  _ready() -> void:
+	#save_manager.load_data()
+	
 	generate_new_tree_sprite()
 	generate_tree_stats()
-	ui_manager.on_player_click_on_tree.connect(hit_tree)
+	ui_manager.on_player_click_on_tree.connect(hit_tree.bind(1 +(total_trees_cut_down^5)))
 
 func generate_new_tree():
 	generate_new_tree_sprite()
@@ -51,9 +54,9 @@ func hit_tree(amount:float = 1.0):
 	current_tree_hp -= amount
 	
 	if current_tree_hp <= 0:
-		total_trees_cut_down += 1
+		total_trees_cut_down += 1 + total_trees_cut_down
 		generate_new_tree()
 		ui_manager.update_ui_tree_remaining()
-		economy_manager.add_gold(1)
+		economy_manager.add_gold(1 + total_trees_cut_down)
 		
 	ui_manager.update_ui_current_tree_hp()

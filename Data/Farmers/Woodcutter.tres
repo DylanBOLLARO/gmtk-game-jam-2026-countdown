@@ -5,11 +5,11 @@
 
 [resource]
 script = ExtResource("1_v5ag4")
-damage = 100.0
+damage = 100000000000.0
 type = 1
 id = "woodcutter"
 name = "Woodcutter"
 description = "Woodcutter"
 icon = ExtResource("1_rbp4g")
-cost = 25.0
+cost = 200.0
 metadata/_custom_type_script = "uid://cj11ytmvpx5b8"
