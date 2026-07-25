@@ -1,4 +1,5 @@
 extends Node
+class_name PurchaseManager
 
 @onready var economy_manager: EconomyManager = get_tree().current_scene.get_node("EconomyManager")
 @onready var tree_manager: TreeManager = get_tree().current_scene.get_node("TreeManager")

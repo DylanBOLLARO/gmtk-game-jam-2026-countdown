@@ -2,12 +2,16 @@
 
 [ext_resource type="Script" uid="uid://biwgbv30gu75a" path="res://Scripts/Game.gd" id="1_ivtx6"]
 [ext_resource type="PackedScene" uid="uid://d1xqtaxjiigr6" path="res://Scene/PurchaseItem.tscn" id="2_3xgnh"]
+[ext_resource type="Texture2D" uid="uid://bf77rnonejbhv" path="res://Assets/UI/countbar.png" id="3_tujvx"]
+[ext_resource type="Texture2D" uid="uid://dsg0lfrmn435q" path="res://Assets/UI/healthbar.png" id="4_2j816"]
 [ext_resource type="Texture2D" uid="uid://c62jnnb5f70n" path="res://Assets/Trees/Tree1.png" id="4_cohtu"]
 [ext_resource type="Texture2D" uid="uid://drp4ry71m3t4b" path="res://Assets/gold.png" id="4_tujvx"]
+[ext_resource type="FontFile" uid="uid://dvr2m4urmb23h" path="res://Assets/Fonts/PixelifySans-VariableFont_wght.ttf" id="5_g3fkh"]
 [ext_resource type="Script" uid="uid://dake2vapcw1mw" path="res://Scripts/Managers/TreeManager.gd" id="5_tujvx"]
 [ext_resource type="Script" uid="uid://hrfm2gihl1pd" path="res://Scripts/Managers/UIManager.gd" id="6_3xgnh"]
 [ext_resource type="Script" uid="uid://b56xogve14e80" path="res://Scripts/Managers/EconomyManager.gd" id="6_48ymf"]
 [ext_resource type="AudioStream" uid="uid://0skkb7m10j6l" path="res://Assets/Sounds/wood_sound.mp3" id="7_48ymf"]
+[ext_resource type="Script" uid="uid://bfr0f8w8sxfwf" path="res://Scripts/Managers/PurchaseManager.gd" id="11_jwmyi"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_km7ha"]
 bg_color = Color(0.23137255, 0.15294118, 0.6, 1)
@@ -28,6 +32,12 @@ func _on_texture_button_button_up() -> void:
 	var tween = get_tree().create_tween()
 	tween.tween_property(click_button,\"scale\",Vector2(1,1),.03)
 "
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g3fkh"]
+bg_color = Color(0.15487596, 0.154876, 0.15487587, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jwmyi"]
+bg_color = Color(0, 0.45456356, 0.3272291, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4jv7b"]
 bg_color = Color(0.08827009, 0, 0.295882, 1)
@@ -73,39 +83,6 @@ theme_override_constants/margin_bottom = 10
 script = SubResource("GDScript_ivtx6")
 metadata/_edit_use_anchors_ = true
 
-[node name="Panel" type="Panel" parent="HBoxContainer/LeftPanel/MarginContainer" unique_id=463600352]
-custom_maximum_size = Vector2(-1, 100)
-layout_mode = 2
-
-[node name="Stats" type="VBoxContainer" parent="HBoxContainer/LeftPanel/MarginContainer/Panel" unique_id=798621790]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_vertical = 0
-
-[node name="MoneyPerSecLabel" type="Label" parent="HBoxContainer/LeftPanel/MarginContainer/Panel/Stats" unique_id=1189066445]
-visible = false
-layout_mode = 2
-theme_override_font_sizes/font_size = 32
-text = "Gold/s: 0"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="TreeRemainingLabel" type="Label" parent="HBoxContainer/LeftPanel/MarginContainer/Panel/Stats" unique_id=181777297]
-layout_mode = 2
-text = "total_trees_on_earth"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="CurrentTreeHP" type="Label" parent="HBoxContainer/LeftPanel/MarginContainer/Panel/Stats" unique_id=323466500]
-layout_mode = 2
-
-[node name="CurrentTreeHPBar" type="ProgressBar" parent="HBoxContainer/LeftPanel/MarginContainer/Panel/Stats" unique_id=550737734]
-layout_mode = 2
-
 [node name="CenterContainer" type="CenterContainer" parent="HBoxContainer/LeftPanel/MarginContainer" unique_id=1546141177]
 layout_mode = 2
 size_flags_horizontal = 4
@@ -118,6 +95,63 @@ layout_mode = 2
 texture_normal = ExtResource("4_cohtu")
 ignore_texture_size = true
 stretch_mode = 4
+
+[node name="Stats" type="VBoxContainer" parent="HBoxContainer/LeftPanel/MarginContainer" unique_id=798621790]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/separation = 10
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/LeftPanel/MarginContainer/Stats" unique_id=1330119199]
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("3_tujvx")
+stretch_mode = 4
+
+[node name="TreeRemainingLabel" type="Label" parent="HBoxContainer/LeftPanel/MarginContainer/Stats/TextureRect" unique_id=181777297]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("5_g3fkh")
+text = "total_trees_on_earth"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Container" type="Control" parent="HBoxContainer/LeftPanel/MarginContainer/Stats" unique_id=598839084]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="CurrentTreeHPBar" type="ProgressBar" parent="HBoxContainer/LeftPanel/MarginContainer/Stats/Container" unique_id=550737734]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.52
+anchor_right = 1.52
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("5_g3fkh")
+theme_override_styles/background = SubResource("StyleBoxFlat_g3fkh")
+theme_override_styles/fill = SubResource("StyleBoxFlat_jwmyi")
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect2" type="TextureRect" parent="HBoxContainer/LeftPanel/MarginContainer/Stats/Container" unique_id=1927059958]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.525
+anchor_right = 1.525
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+texture = ExtResource("4_2j816")
+metadata/_edit_use_anchors_ = true
 
 [node name="RightPanel" type="Panel" parent="HBoxContainer" unique_id=1600323006]
 layout_mode = 2
@@ -150,6 +184,7 @@ expand_mode = 2
 
 [node name="GoldLabel" type="Label" parent="HBoxContainer/RightPanel/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1234893310]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("5_g3fkh")
 theme_override_font_sizes/font_size = 32
 text = "gold"
 horizontal_alignment = 1
@@ -161,6 +196,7 @@ size_flags_vertical = 3
 
 [node name="FarmersLabel" type="Label" parent="HBoxContainer/RightPanel/MarginContainer/VBoxContainer/Farmers" unique_id=1788668056]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("5_g3fkh")
 text = "Farmers"
 
 [node name="ScrollContainer" type="ScrollContainer" parent="HBoxContainer/RightPanel/MarginContainer/VBoxContainer/Farmers" unique_id=2094350089]
@@ -195,6 +231,10 @@ metadata/_custom_type_script = "uid://hrfm2gihl1pd"
 [node name="EconomyManager" type="Node" parent="." unique_id=1119843011]
 script = ExtResource("6_48ymf")
 metadata/_custom_type_script = "uid://b56xogve14e80"
+
+[node name="PurchaseManager" type="Node" parent="." unique_id=268808432]
+script = ExtResource("11_jwmyi")
+metadata/_custom_type_script = "uid://bfr0f8w8sxfwf"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=319658277]
 stream = ExtResource("7_48ymf")

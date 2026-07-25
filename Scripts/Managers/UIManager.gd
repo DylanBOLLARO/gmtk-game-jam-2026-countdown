@@ -7,15 +7,17 @@ signal on_player_click_on_tree
 # Managers
 @onready var economy_manager: EconomyManager = get_tree().current_scene.get_node("EconomyManager")
 @onready var tree_manager: TreeManager = get_tree().current_scene.get_node("TreeManager")
-@onready var money_per_sec_label: Label = $"../HBoxContainer/LeftPanel/MarginContainer/Panel/Stats/MoneyPerSecLabel"
+@onready var purchase_manager: PurchaseManager = get_tree().current_scene.get_node("PurchaseManager")
+
+# Nodes
+@onready var money_per_sec_label: Label = $"../HBoxContainer/LeftPanel/MarginContainer/Stats/MoneyPerSecLabel"
 @onready var texture_button: TextureButton = $"../HBoxContainer/LeftPanel/MarginContainer/CenterContainer/TextureButton"
-@onready var tree_remaining_label: Label = $"../HBoxContainer/LeftPanel/MarginContainer/Panel/Stats/TreeRemainingLabel"
-@onready var current_tree_hp: Label = $"../HBoxContainer/LeftPanel/MarginContainer/Panel/Stats/CurrentTreeHP"
-@onready var current_tree_hp_bar: ProgressBar = $"../HBoxContainer/LeftPanel/MarginContainer/Panel/Stats/CurrentTreeHPBar"
+@onready var current_tree_hp: Label = $"../HBoxContainer/LeftPanel/MarginContainer/Stats/CurrentTreeHP"
 @onready var audio_stream_player: AudioStreamPlayer = $"../AudioStreamPlayer"
 @onready var gold_label: Label = $"../HBoxContainer/RightPanel/MarginContainer/VBoxContainer/HBoxContainer/GoldLabel"
-
+@onready var tree_remaining_label: Label = $"../HBoxContainer/LeftPanel/MarginContainer/Stats/TextureRect/TreeRemainingLabel"
 @onready var farmers_container: VBoxContainer = $"../HBoxContainer/RightPanel/MarginContainer/VBoxContainer/Farmers/ScrollContainer/FarmersContainer"
+@onready var current_tree_hp_bar: ProgressBar = $"../HBoxContainer/LeftPanel/MarginContainer/Stats/Container/CurrentTreeHPBar"
 
 var button_scene: PackedScene = preload("uid://d1xqtaxjiigr6")
 
@@ -99,7 +101,7 @@ func update_ui_farmers():
 		
 		var amount_farmer = 0
 		
-		for it_owned_farmer in PurchaseManager.owned_farmers.values():
+		for it_owned_farmer in purchase_manager.owned_farmers.values():
 			if item.type == it_owned_farmer.get("data").type:
 				amount_farmer = it_owned_farmer.get("amount")
 		
@@ -116,4 +118,4 @@ func update_ui_farmers():
 		
 func on_item_purchased(data):
 	economy_manager.add_gold(data.cost * -1)
-	PurchaseManager.add_item(data)
+	purchase_manager.add_item(data)

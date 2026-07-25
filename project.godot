@@ -11,14 +11,13 @@ config_version=5
 [application]
 
 config/name="GMTKGameJam2026"
-run/main_scene="uid://biqmgskog10yw"
+run/main_scene="uid://dvrd752gyy35l"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [autoload]
 
 TransitionScene="*uid://jo6fv3xgj7x7"
-PurchaseManager="*uid://bfr0f8w8sxfwf"
 GameEnums="*uid://4183rk725ike"
 
 [display]

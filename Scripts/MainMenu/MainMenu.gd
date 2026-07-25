@@ -8,7 +8,8 @@ func _ready() -> void:
 func _on_play_button_down() -> void:
 	TransitionScene.transition()
 	await TransitionScene.on_transition_finishd
-	get_tree().change_scene_to_file("res://Scene/game.tscn")
+	get_tree().change_scene_to_packed(preload("res://Scene/Game.tscn"))
+
 
 func _on_credits_button_down() -> void:
 	pass # Replace with function body.
