@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Farmer" format=3 uid="uid://dx5drf2fgkakx"]
 
-[ext_resource type="Texture2D" uid="uid://ml7wf0yavhud" path="res://Assets/Minotaur.png" id="1_5tn2y"]
+[ext_resource type="Texture2D" uid="uid://ml7wf0yavhud" path="res://Assets/Sprites/Farmers/Minotaur.png" id="1_5tn2y"]
 [ext_resource type="Script" uid="uid://cj11ytmvpx5b8" path="res://Scripts/Resources/Farmer.gd" id="2_j477v"]
 [ext_resource type="Script" uid="uid://gaobe04oqi7a" path="res://Scripts/Resources/FarmerState.gd" id="3_gep6o"]
 

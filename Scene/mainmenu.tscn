@@ -1,9 +1,13 @@
 [gd_scene format=3 uid="uid://dvrd752gyy35l"]
 
-[ext_resource type="FontFile" uid="uid://dvr2m4urmb23h" path="res://Assets/Font/PixelifySans-VariableFont_wght.ttf" id="1_tfeq1"]
-[ext_resource type="Texture2D" uid="uid://brto0g3ur3047" path="res://Assets/Buttons/button1_default.png" id="2_tafl8"]
-[ext_resource type="Texture2D" uid="uid://8j24mtesogkr" path="res://Assets/Buttons/button1_pressed.png" id="3_4aexr"]
-[ext_resource type="Texture2D" uid="uid://cy3c01hsjaxlj" path="res://Assets/Buttons/button1_hoever.png" id="4_ebm2f"]
+[ext_resource type="Script" uid="uid://cwqfmnobmxccg" path="res://Scripts/MainMenu/MainMenu.gd" id="1_tafl8"]
+[ext_resource type="FontFile" uid="uid://dvr2m4urmb23h" path="res://Assets/Fonts/PixelifySans-VariableFont_wght.ttf" id="1_tfeq1"]
+[ext_resource type="Texture2D" uid="uid://bnfcwuj1e6ait" path="res://Assets/Images/BG.jpg" id="2_as2tk"]
+[ext_resource type="Texture2D" uid="uid://brto0g3ur3047" path="res://Assets/Sprites/Buttons/button1_default.png" id="2_tafl8"]
+[ext_resource type="Texture2D" uid="uid://8j24mtesogkr" path="res://Assets/Sprites/Buttons/button1_pressed.png" id="3_4aexr"]
+[ext_resource type="Texture2D" uid="uid://cy3c01hsjaxlj" path="res://Assets/Sprites/Buttons/button1_hoever.png" id="4_ebm2f"]
+[ext_resource type="AudioStream" uid="uid://dpb4fl4v1jexa" path="res://Assets/Sounds/main_menu_bg_music.mp3" id="6_4aexr"]
+[ext_resource type="AudioStream" uid="uid://0skkb7m10j6l" path="res://Assets/Sounds/wood_sound.mp3" id="7_ebm2f"]
 
 [node name="Mainmenu" type="Control" unique_id=616374830]
 layout_mode = 3
@@ -12,6 +16,33 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_tafl8")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=795290144]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_as2tk")
+expand_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="TextureRect" unique_id=1087784345]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -23.0
+grow_horizontal = 0
+grow_vertical = 0
+offset_transform_enabled = true
+offset_transform_position = Vector2(-5, -5)
+text = "Background image designed by macrovector / Freepik"
 
 [node name="PanelContainer" type="PanelContainer" parent="." unique_id=1096828082]
 layout_mode = 1
@@ -33,7 +64,7 @@ offset_bottom = 139.0
 grow_horizontal = 2
 theme_override_fonts/font = ExtResource("1_tfeq1")
 theme_override_font_sizes/font_size = 64
-text = "Game Name"
+text = "Treellion"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=905130948]
 layout_mode = 1
@@ -118,3 +149,18 @@ grow_vertical = 2
 theme_override_fonts/font = ExtResource("1_tfeq1")
 theme_override_font_sizes/font_size = 40
 text = "Exit"
+
+[node name="BGMusicSound" type="AudioStreamPlayer" parent="." unique_id=1253319729]
+stream = ExtResource("6_4aexr")
+autoplay = true
+
+[node name="HoverSound" type="AudioStreamPlayer" parent="." unique_id=957865108]
+stream = ExtResource("7_ebm2f")
+max_polyphony = 8
+
+[connection signal="button_down" from="VBoxContainer/Play" to="." method="_on_play_button_down"]
+[connection signal="mouse_entered" from="VBoxContainer/Play" to="." method="_on_play_mouse_entered"]
+[connection signal="button_down" from="VBoxContainer/Credits" to="." method="_on_credits_button_down"]
+[connection signal="mouse_entered" from="VBoxContainer/Credits" to="." method="_on_credits_mouse_entered"]
+[connection signal="button_down" from="VBoxContainer/Exit" to="." method="_on_exit_button_down"]
+[connection signal="mouse_entered" from="VBoxContainer/Exit" to="." method="_on_exit_mouse_entered"]

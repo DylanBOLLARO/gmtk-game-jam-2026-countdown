@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bjsg4lif7i4aq"
-path="res://.godot/imported/button2_hoever.png-600fa92b96fc4ad6572102b304b884f0.ctex"
+uid="uid://dxtbo8nrvhgnt"
+path="res://.godot/imported/Woodcutter.png-9ae39404ff2245388bb13843d7ec96a2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Buttons/button2_hoever.png"
-dest_files=["res://.godot/imported/button2_hoever.png-600fa92b96fc4ad6572102b304b884f0.ctex"]
+source_file="res://Assets/Sprites/Farmers/Woodcutter.png"
+dest_files=["res://.godot/imported/Woodcutter.png-9ae39404ff2245388bb13843d7ec96a2.ctex"]
 
 [params]
 

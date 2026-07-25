@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://j4juxr7amope"
-path="res://.godot/imported/button2_pressed.png-a0bcd28089b4a355e1e3e4d385e44b9c.ctex"
+uid="uid://ml7wf0yavhud"
+path="res://.godot/imported/Minotaur.png-f24dfbc20e79fbbf939ca5e447fe9441.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Buttons/button2_pressed.png"
-dest_files=["res://.godot/imported/button2_pressed.png-a0bcd28089b4a355e1e3e4d385e44b9c.ctex"]
+source_file="res://Assets/Sprites/Farmers/Minotaur.png"
+dest_files=["res://.godot/imported/Minotaur.png-f24dfbc20e79fbbf939ca5e447fe9441.ctex"]
 
 [params]
 

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://d1xqtaxjiigr6"]
 
-[ext_resource type="Texture2D" uid="uid://dxtbo8nrvhgnt" path="res://Assets/Woodcutter.png" id="1_mwd3r"]
+[ext_resource type="Texture2D" uid="uid://dxtbo8nrvhgnt" path="res://Assets/Sprites/Farmers/Woodcutter.png" id="1_mwd3r"]
 [ext_resource type="Script" uid="uid://dpnmb8i74fsgj" path="res://Scripts/PurchaseItem.gd" id="1_rifja"]
 
 [node name="Control" type="Panel" unique_id=120612465]

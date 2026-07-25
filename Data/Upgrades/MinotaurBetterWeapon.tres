@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Upgrade" format=3 uid="uid://cpl7b2inearfj"]
 
-[ext_resource type="Texture2D" uid="uid://bq4p6un7272bv" path="res://Assets/10.png" id="1_ciibc"]
+[ext_resource type="Texture2D" uid="uid://bq4p6un7272bv" path="res://Assets/Sprites/Upgrades/10.png" id="1_ciibc"]
 [ext_resource type="Script" uid="uid://rkk4bhos55pe" path="res://Scripts/Resources/Upgrade.gd" id="1_kk6jr"]
 [ext_resource type="Script" uid="uid://gaobe04oqi7a" path="res://Scripts/Resources/FarmerState.gd" id="3_ciibc"]
 
