@@ -1,23 +1,25 @@
 extends Control
 
-@onready var money_per_sec_label: Label = $HBoxContainer/LeftPanel/MarginContainer/Stats/HBoxContainer/MoneyPerSecLabel
-@onready var gold_label: Label = $HBoxContainer/LeftPanel/MarginContainer/Stats/HBoxContainer/GoldLabel
+# Manager
+@onready var tree_manager: TreeManager = $TreeManager
+@onready var ui_manager: UIManager = $UIManager
+@onready var economy_manager: EconomyManager = $EconomyManager
+
+# Nodes
+@onready var gold_label: Label = $HBoxContainer/LeftPanel/MarginContainer/Panel/Stats/GoldLabel
 @onready var farmers_container: VBoxContainer = $HBoxContainer/RightPanel/MarginContainer/VBoxContainer/Farmers/FarmersContainer
 @onready var upgrades_container: VBoxContainer = $HBoxContainer/RightPanel/MarginContainer/VBoxContainer/Upgrades/UpgradesContainer
 @export var button_scene: PackedScene
+@onready var money_per_sec_label: Label = $HBoxContainer/LeftPanel/MarginContainer/Panel/Stats/MoneyPerSecLabel
+@onready var tree_remaining_label: Label = $HBoxContainer/LeftPanel/MarginContainer/Panel/Stats/TreeRemainingLabel
 
 # variables
-# --- handle click 
-
 var player_stats: PlayerStats = PlayerStats.new()
 
 # --- handle farmers 
 var amount_farm_multiplier: float = 1
 
 var timer := Timer.new()
-const save_path = "user://userdata.save"
-
-
 
 var all_farmers = [
 	preload("res://Data/Farmers/Minotaur.tres"),
@@ -31,33 +33,9 @@ var all_upgrades = [
 ]
 
 
-func load_resources(path: String) -> Array:
-	var resources = []
-	print("📁 Attempting to load from: ", path)
-	
-	var dir = DirAccess.open(path)
-	if dir:
-		print("✅ Directory opened successfully")
-		dir.list_dir_begin()
-		var file_name = dir.get_next()
-		var count = 0
-		while file_name != "":
-			print("  Found file: ", file_name)
-			if file_name.ends_with(".tres"):
-				var resource = load(path + "/" + file_name)
-				print("    Loaded: ", resource)
-				resources.append(resource)
-				count += 1
-			file_name = dir.get_next()
-		dir.list_dir_end()
-		print("✅ Loaded ", count, " resources")
-	else:
-		print("❌ FAILED to open directory: ", path)
-	
-	return resources
-
 func update_ui_gold():
-	gold_label.text = str(EconomyManager.gold)
+	pass
+	#gold_label.text = str(economy_manager.gold)
 
 func generate_all_upgrades():
 	#remove all items in list
@@ -134,13 +112,6 @@ func generate_all_farmers():
 		farmers_container.add_child(hbox)
 
 func _ready() -> void:
-	print("🔍 EXPORT DEBUG - Windows")
-	print("button_scene path: ", button_scene)
-	print("button_scene exists: ", button_scene != null)
-	print("button_scene instantiate works: ", button_scene.instantiate() != null if button_scene else "NULL")
-	print("all_upgrades size: ", all_upgrades.size())
-	print("all_farmers size: ", all_farmers.size())
-	
 	player_stats.click_amount = 50
 	
 	timer.wait_time = 1
@@ -149,17 +120,16 @@ func _ready() -> void:
 	add_child(timer)
 	timer.start()
 	
-	load_data()
-	
-	EconomyManager.gold_changed.connect(update_ui_gold)
-	EconomyManager.gold_changed.connect(generate_all_farmers)
-	EconomyManager.gold_changed.connect(generate_all_upgrades)
-	EconomyManager.emit_signal("gold_changed")
+	#economy_manager.gold_changed.connect(update_ui_gold)
+	#economy_manager.gold_changed.connect(generate_all_farmers)
+	#economy_manager.gold_changed.connect(generate_all_upgrades)
+	#economy_manager.emit_signal("gold_changed")
 
 func _on_timer_timeout():
-	EconomyManager.add_gold(EconomyManager.get_gold_per_second())
-	money_per_sec_label.text = "Gold/s: " + str(round(EconomyManager.gold_gained_this_second))
-	EconomyManager.gold_gained_this_second = 0
+	pass
+	#economy_manager.add_gold(economy_manager.get_gold_per_second())
+	#money_per_sec_label.text = "Gold/s: " + str(round(economy_manager.gold_gained_this_second))
+	#economy_manager.gold_gained_this_second = 0
 
 func get_click_value() -> float:
 	var amount = player_stats.click_amount
@@ -172,26 +142,3 @@ func get_click_value() -> float:
 			
 	return amount * multiplier
 	
-func _on_texture_button_button_down() -> void:
-	EconomyManager.add_gold(get_click_value())
-	save_data()
-
-func save_data():
-	var data = {
-		"gold": EconomyManager.gold
-	}
-
-	var file = FileAccess.open(save_path, FileAccess.WRITE)
-	file.store_var(data)
-	file.close()
-
-func load_data():
-	#if FileAccess.file_exists(save_path):
-		#var file = FileAccess.open(save_path, FileAccess.READ)
-		#var data = file.get_var()
-		#file.close()
-#
-		#if typeof(data) == TYPE_DICTIONARY:
-			#EconomyManager.gold = data.get("gold", 0)
-	#else:
-	save_data()

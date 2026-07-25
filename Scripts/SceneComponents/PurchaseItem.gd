@@ -21,12 +21,13 @@ func _ready() -> void:
 		var green_style = StyleBoxFlat.new()
 		green_style.bg_color = Color(0.35, 0.65, 0.45) # soft green
 
-		if EconomyManager.can_purchase(data.cost):
-			purchase_button.add_theme_stylebox_override("normal", green_style)
-		else:
-			purchase_button.add_theme_stylebox_override("normal", red_style)
+		#if EconomyManager.can_purchase(data.cost):
+			#purchase_button.add_theme_stylebox_override("normal", green_style)
+		#else:
+			#purchase_button.add_theme_stylebox_override("normal", red_style)
 
 func _on_purchase_button_button_down() -> void:
-	if EconomyManager.can_purchase(data.cost):
-		EconomyManager.add_gold(data.cost * -1)
-		PurchaseManager.add_item(data)
+	pass
+	#if EconomyManager.can_purchase(data.cost):
+		#EconomyManager.add_gold(data.cost * -1)
+		#PurchaseManager.add_item(data)

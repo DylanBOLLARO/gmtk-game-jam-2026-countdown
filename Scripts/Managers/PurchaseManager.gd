@@ -1,5 +1,7 @@
 extends Node
 
+@onready var economy_manager: EconomyManager = get_tree().current_scene.get_node("EconomyManager")
+
 # variables
 var owned_farmers = {}
 var owned_upgrades = []
@@ -17,5 +19,5 @@ func add_item(item_data):
 		owned_upgrades.append(item_data)
 		
 	# used to update UI 
-	EconomyManager.emit_signal("gold_changed")
+	economy_manager.emit_signal("gold_changed")
 	

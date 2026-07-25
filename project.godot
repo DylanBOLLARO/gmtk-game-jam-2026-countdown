@@ -19,9 +19,7 @@ config/icon="res://icon.svg"
 
 TransitionScene="*uid://jo6fv3xgj7x7"
 PurchaseManager="*uid://bfr0f8w8sxfwf"
-EconomyManager="*uid://b56xogve14e80"
 GameEnums="*uid://4183rk725ike"
-TreeManager="*uid://dake2vapcw1mw"
 
 [display]
 

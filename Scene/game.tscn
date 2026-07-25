@@ -1,12 +1,32 @@
 [gd_scene format=3 uid="uid://biqmgskog10yw"]
 
-[ext_resource type="Texture2D" uid="uid://buwokmo3bhemc" path="res://Assets/Trees/Tree1.png" id="1_mhtsl"]
-[ext_resource type="Script" uid="uid://biwgbv30gu75a" path="res://Scripts/Game.gd" id="1_w51g1"]
-[ext_resource type="Script" uid="uid://1rroforyij0" path="res://Scripts/Animations.gd" id="2_03iqk"]
-[ext_resource type="PackedScene" uid="uid://d1xqtaxjiigr6" path="res://Scene/PurchaseItem.tscn" id="2_ihreq"]
+[ext_resource type="Script" uid="uid://biwgbv30gu75a" path="res://Scripts/Game.gd" id="1_ivtx6"]
+[ext_resource type="PackedScene" uid="uid://d1xqtaxjiigr6" path="res://Scene/PurchaseItem.tscn" id="2_3xgnh"]
+[ext_resource type="Texture2D" uid="uid://c62jnnb5f70n" path="res://Assets/Trees/Tree1.png" id="4_cohtu"]
+[ext_resource type="Script" uid="uid://dake2vapcw1mw" path="res://Scripts/Managers/TreeManager.gd" id="5_tujvx"]
+[ext_resource type="Script" uid="uid://hrfm2gihl1pd" path="res://Scripts/Managers/UIManager.gd" id="6_3xgnh"]
+[ext_resource type="Script" uid="uid://b56xogve14e80" path="res://Scripts/Managers/EconomyManager.gd" id="6_48ymf"]
+[ext_resource type="AudioStream" uid="uid://0skkb7m10j6l" path="res://Assets/Sounds/wood_sound.mp3" id="7_48ymf"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_km7ha"]
 bg_color = Color(0.23137255, 0.15294118, 0.6, 1)
+
+[sub_resource type="GDScript" id="GDScript_ivtx6"]
+script/source = "extends MarginContainer
+
+@onready var click_button: TextureButton = $CenterContainer/TextureButton
+
+func _ready() -> void:
+	click_button.pivot_offset = click_button.size / 2
+	
+func _on_texture_button_button_down() -> void:
+	var tween = get_tree().create_tween()
+	tween.tween_property(click_button,\"scale\",Vector2(.9,.9),.03)
+
+func _on_texture_button_button_up() -> void:
+	var tween = get_tree().create_tween()
+	tween.tween_property(click_button,\"scale\",Vector2(1,1),.03)
+"
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4jv7b"]
 bg_color = Color(0.08827009, 0, 0.295882, 1)
@@ -18,8 +38,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_w51g1")
-button_scene = ExtResource("2_ihreq")
+script = ExtResource("1_ivtx6")
+button_scene = ExtResource("2_3xgnh")
+metadata/_edit_use_anchors_ = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=189513577]
 layout_mode = 1
@@ -28,6 +49,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="LeftPanel" type="Panel" parent="HBoxContainer" unique_id=10952138]
 layout_mode = 2
@@ -43,38 +65,65 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("2_03iqk")
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+script = SubResource("GDScript_ivtx6")
+metadata/_edit_use_anchors_ = true
 
-[node name="Stats" type="VBoxContainer" parent="HBoxContainer/LeftPanel/MarginContainer" unique_id=798621790]
+[node name="Panel" type="Panel" parent="HBoxContainer/LeftPanel/MarginContainer" unique_id=463600352]
+custom_maximum_size = Vector2(-1, 150)
 layout_mode = 2
 
-[node name="HBoxContainer" type="VBoxContainer" parent="HBoxContainer/LeftPanel/MarginContainer/Stats" unique_id=1584100852]
-layout_mode = 2
-alignment = 1
+[node name="Stats" type="VBoxContainer" parent="HBoxContainer/LeftPanel/MarginContainer/Panel" unique_id=798621790]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 0
 
-[node name="GoldLabel" type="Label" parent="HBoxContainer/LeftPanel/MarginContainer/Stats/HBoxContainer" unique_id=1234893310]
+[node name="GoldLabel" type="Label" parent="HBoxContainer/LeftPanel/MarginContainer/Panel/Stats" unique_id=1234893310]
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "money : 0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="MoneyPerSecLabel" type="Label" parent="HBoxContainer/LeftPanel/MarginContainer/Stats/HBoxContainer" unique_id=1189066445]
+[node name="MoneyPerSecLabel" type="Label" parent="HBoxContainer/LeftPanel/MarginContainer/Panel/Stats" unique_id=1189066445]
+visible = false
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "Gold/s: 0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="TreeRemainingLabel" type="Label" parent="HBoxContainer/LeftPanel/MarginContainer/Panel/Stats" unique_id=181777297]
+layout_mode = 2
+text = "awaqz"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CurrentTreeHP" type="Label" parent="HBoxContainer/LeftPanel/MarginContainer/Panel/Stats" unique_id=323466500]
+layout_mode = 2
+
+[node name="CurrentTreeHPBar" type="ProgressBar" parent="HBoxContainer/LeftPanel/MarginContainer/Panel/Stats" unique_id=550737734]
+layout_mode = 2
+
 [node name="CenterContainer" type="CenterContainer" parent="HBoxContainer/LeftPanel/MarginContainer" unique_id=1546141177]
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 
 [node name="TextureButton" type="TextureButton" parent="HBoxContainer/LeftPanel/MarginContainer/CenterContainer" unique_id=559816588]
 custom_minimum_size = Vector2(400, 400)
+custom_maximum_size = Vector2(400, 400)
 layout_mode = 2
-texture_normal = ExtResource("1_mhtsl")
+texture_normal = ExtResource("4_cohtu")
 ignore_texture_size = true
-stretch_mode = 0
+stretch_mode = 4
 
 [node name="RightPanel" type="Panel" parent="HBoxContainer" unique_id=1600323006]
 layout_mode = 2
@@ -119,6 +168,20 @@ text = "Upgrades"
 layout_mode = 2
 size_flags_vertical = 3
 
-[connection signal="button_down" from="HBoxContainer/LeftPanel/MarginContainer/CenterContainer/TextureButton" to="." method="_on_texture_button_button_down"]
-[connection signal="button_down" from="HBoxContainer/LeftPanel/MarginContainer/CenterContainer/TextureButton" to="HBoxContainer/LeftPanel/MarginContainer" method="_on_texture_button_button_down"]
-[connection signal="button_up" from="HBoxContainer/LeftPanel/MarginContainer/CenterContainer/TextureButton" to="HBoxContainer/LeftPanel/MarginContainer" method="_on_texture_button_button_up"]
+[node name="TreeManager" type="Node" parent="." unique_id=168392632]
+script = ExtResource("5_tujvx")
+metadata/_custom_type_script = "uid://dake2vapcw1mw"
+
+[node name="UIManager" type="Node" parent="." unique_id=1477162329]
+script = ExtResource("6_3xgnh")
+metadata/_custom_type_script = "uid://hrfm2gihl1pd"
+
+[node name="EconomyManager" type="Node" parent="." unique_id=1119843011]
+script = ExtResource("6_48ymf")
+metadata/_custom_type_script = "uid://b56xogve14e80"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=319658277]
+stream = ExtResource("7_48ymf")
+
+[connection signal="button_down" from="HBoxContainer/LeftPanel/MarginContainer/CenterContainer/TextureButton" to="UIManager" method="_on_texture_button_button_down"]
+[connection signal="button_up" from="HBoxContainer/LeftPanel/MarginContainer/CenterContainer/TextureButton" to="UIManager" method="_on_texture_button_button_up"]
