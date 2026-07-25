@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="GMTKGameJam2026"
-run/main_scene="uid://dvrd752gyy35l"
+run/main_scene="uid://nq6dhofvjjdg"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
 
