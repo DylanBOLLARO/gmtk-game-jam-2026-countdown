@@ -52,9 +52,9 @@ func format_with_spaces(number: int) -> String:
 			result = " " + result
 	return result
 	
-func  update_ui_tree_remaining():
+func update_ui_tree_remaining():
 	tree_remaining_label.text = format_with_spaces(tree_manager.total_trees_on_earth-tree_manager.total_trees_cut_down)
 
-func  update_ui_current_tree_hp():
+func update_ui_current_tree_hp():
 	current_tree_hp_bar.max_value = tree_manager.current_tree_max_hp
 	current_tree_hp_bar.value = tree_manager.current_tree_hp

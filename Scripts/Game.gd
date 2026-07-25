@@ -13,8 +13,7 @@ extends Control
 @onready var money_per_sec_label: Label = $HBoxContainer/LeftPanel/MarginContainer/Panel/Stats/MoneyPerSecLabel
 @onready var tree_remaining_label: Label = $HBoxContainer/LeftPanel/MarginContainer/Panel/Stats/TreeRemainingLabel
 
-# variables
-var player_stats: PlayerStats = PlayerStats.new()
+var player_damage: float = 1
 
 # --- handle farmers 
 var amount_farm_multiplier: float = 1
@@ -37,41 +36,43 @@ func update_ui_gold():
 	pass
 	#gold_label.text = str(economy_manager.gold)
 
-func generate_all_upgrades():
-	#remove all items in list
-	for child in upgrades_container.get_children():
-		child.queue_free()
+#func generate_all_upgrades():
+	##remove all items in list
+	#for child in upgrades_container.get_children():
+		#child.queue_free()
+	#
+	#var sorted = all_upgrades.duplicate()
+#
+	#sorted.sort_custom(func(a, b):
+		#return a.cost < b.cost
+	#)
+	#
+	## generate all items in list
+	#for item in sorted:
+		#var owned := false
+#
+		#for upgrade in PurchaseManager.owned_upgrades:
+			#if upgrade["name"] == item.name:
+				#owned = true
+				#break
+#
+		#if owned:
+			#continue
+#
+		#var hbox = HBoxContainer.new()
+		#hbox.anchor_right = 1.0
+		#hbox.anchor_bottom = 1.0
+		#hbox.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	#
+		#var button_instance:PurchaseItem = button_scene.instantiate()
+		#button_instance.setup(item)
+		#hbox.add_child(button_instance)
+		#
+		#button_instance.on_purchased.connect(simple_print)
+		#upgrades_container.add_child(hbox)
+		#
+
 	
-	var sorted = all_upgrades.duplicate()
-
-	sorted.sort_custom(func(a, b):
-		return a.cost < b.cost
-	)
-	
-	# generate all items in list
-	for item in sorted:
-		var owned := false
-
-		for upgrade in PurchaseManager.owned_upgrades:
-			if upgrade["name"] == item.name:
-				owned = true
-				break
-
-		if owned:
-			continue
-
-		var hbox = HBoxContainer.new()
-		hbox.anchor_right = 1.0
-		hbox.anchor_bottom = 1.0
-		hbox.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	
-		var button_instance = button_scene.instantiate()
-		button_instance.setup(item)
-		
-		hbox.add_child(button_instance)
-		
-		upgrades_container.add_child(hbox)
-		
 func generate_all_farmers():
 	#remove all items in list
 	for child in farmers_container.get_children():
@@ -103,42 +104,18 @@ func generate_all_farmers():
 		if amount_farmer > 0 :
 			count_label.text = "x " + str(amount_farmer)
 			
-		var button_instance = button_scene.instantiate()
+		var button_instance:PurchaseItem = button_scene.instantiate()
 		button_instance.setup(item)
+		button_instance.on_purchased.connect(on_item_purchased)
 		
 		hbox.add_child(button_instance)
 		hbox.add_child(count_label)
-		
 		farmers_container.add_child(hbox)
-
+		
+func on_item_purchased(data):
+	economy_manager.add_gold(data.cost * -1)
+	PurchaseManager.add_item(data)
+	
 func _ready() -> void:
-	player_stats.click_amount = 50
-	
-	timer.wait_time = 1
-	timer.one_shot = false
-	timer.timeout.connect(_on_timer_timeout)
-	add_child(timer)
-	timer.start()
-	
-	#economy_manager.gold_changed.connect(update_ui_gold)
-	#economy_manager.gold_changed.connect(generate_all_farmers)
-	#economy_manager.gold_changed.connect(generate_all_upgrades)
-	#economy_manager.emit_signal("gold_changed")
-
-func _on_timer_timeout():
-	pass
-	#economy_manager.add_gold(economy_manager.get_gold_per_second())
-	#money_per_sec_label.text = "Gold/s: " + str(round(economy_manager.gold_gained_this_second))
-	#economy_manager.gold_gained_this_second = 0
-
-func get_click_value() -> float:
-	var amount = player_stats.click_amount
-	var multiplier = player_stats.click_multiplier
-	
-	for upgrade in PurchaseManager.owned_upgrades:
-		if upgrade.stats is PlayerStats:
-			amount += upgrade.stats.click_amount
-			multiplier += upgrade.stats.click_multiplier
-			
-	return amount * multiplier
-	
+	economy_manager.on_gold_changed.connect(generate_all_farmers)
+	#economy_manager.on_gold_changed.connect(generate_all_upgrades)
