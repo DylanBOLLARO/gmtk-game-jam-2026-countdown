@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://biqmgskog10yw"]
+[gd_scene format=3 uid="uid://cav0wf4spwk1e"]
 
 [ext_resource type="Script" uid="uid://biwgbv30gu75a" path="res://Scripts/Game.gd" id="1_ivtx6"]
 [ext_resource type="PackedScene" uid="uid://d1xqtaxjiigr6" path="res://Scene/PurchaseItem.tscn" id="2_3xgnh"]

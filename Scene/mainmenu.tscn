@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://dvrd752gyy35l"]
+[gd_scene format=3 uid="uid://nq6dhofvjjdg"]
 
 [ext_resource type="Script" uid="uid://cwqfmnobmxccg" path="res://Scripts/MainMenu/MainMenu.gd" id="1_tafl8"]
 [ext_resource type="FontFile" uid="uid://dvr2m4urmb23h" path="res://Assets/Fonts/PixelifySans-VariableFont_wght.ttf" id="1_tfeq1"]
