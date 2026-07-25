@@ -35,7 +35,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_feq4k"]
-length = 0.001
+length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -66,7 +66,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.057945617, 4.698163e-05, 0.20165414, 1)
+color = Color(0.012098929, 0.069818914, 0.037013654, 1)
 metadata/_edit_use_anchors_ = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=350997956]

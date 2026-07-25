@@ -10,14 +10,13 @@ signal on_player_click_on_tree
 @onready var purchase_manager: PurchaseManager = get_tree().current_scene.get_node("PurchaseManager")
 
 # Nodes
-@onready var money_per_sec_label: Label = $"../HBoxContainer/LeftPanel/MarginContainer/Stats/MoneyPerSecLabel"
 @onready var texture_button: TextureButton = $"../HBoxContainer/LeftPanel/MarginContainer/CenterContainer/TextureButton"
-@onready var current_tree_hp: Label = $"../HBoxContainer/LeftPanel/MarginContainer/Stats/CurrentTreeHP"
+@onready var current_tree_hp_bar: ProgressBar = $"../HBoxContainer/LeftPanel/MarginContainer/Stats/Container/CurrentTreeHPBar"
+
 @onready var audio_stream_player: AudioStreamPlayer = $"../AudioStreamPlayer"
-@onready var gold_label: Label = $"../HBoxContainer/RightPanel/MarginContainer/VBoxContainer/HBoxContainer/GoldLabel"
 @onready var tree_remaining_label: Label = $"../HBoxContainer/LeftPanel/MarginContainer/Stats/TextureRect/TreeRemainingLabel"
 @onready var farmers_container: VBoxContainer = $"../HBoxContainer/RightPanel/MarginContainer/VBoxContainer/Farmers/ScrollContainer/FarmersContainer"
-@onready var current_tree_hp_bar: ProgressBar = $"../HBoxContainer/LeftPanel/MarginContainer/Stats/Container/CurrentTreeHPBar"
+@onready var gold_label: Label = $"../HBoxContainer/RightPanel/MarginContainer/VBoxContainer/Control/HBoxContainer/GoldLabel"
 
 var button_scene: PackedScene = preload("uid://d1xqtaxjiigr6")
 
@@ -41,7 +40,6 @@ func init_ui():
 func _ready() -> void:
 	economy_manager.on_gold_changed.connect(update_ui_player_gold)
 	economy_manager.on_gold_changed.connect(update_ui_farmers)
-	tree_manager.on_total_trees_cut_down_changed.connect(update_ui_tree_remaining)
 	texture_button.pivot_offset = texture_button.size / 2
 	
 	init_ui()

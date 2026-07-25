@@ -1,8 +1,6 @@
 extends Node
 class_name TreeManager
 
-signal on_total_trees_cut_down_changed
-
 @onready var ui_manager: UIManager = get_tree().current_scene.get_node("UIManager")
 @onready var economy_manager: EconomyManager = get_tree().current_scene.get_node("EconomyManager")
 

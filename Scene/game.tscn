@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://biwgbv30gu75a" path="res://Scripts/Game.gd" id="1_ivtx6"]
 [ext_resource type="PackedScene" uid="uid://d1xqtaxjiigr6" path="res://Scene/PurchaseItem.tscn" id="2_3xgnh"]
+[ext_resource type="Texture2D" uid="uid://bn5tujghrwocj" path="res://Assets/Images/ForestA.png" id="3_nspe4"]
 [ext_resource type="Texture2D" uid="uid://bf77rnonejbhv" path="res://Assets/UI/countbar.png" id="3_tujvx"]
 [ext_resource type="Texture2D" uid="uid://dsg0lfrmn435q" path="res://Assets/UI/healthbar.png" id="4_2j816"]
 [ext_resource type="Texture2D" uid="uid://c62jnnb5f70n" path="res://Assets/Trees/Tree1.png" id="4_cohtu"]
@@ -12,9 +13,10 @@
 [ext_resource type="Script" uid="uid://b56xogve14e80" path="res://Scripts/Managers/EconomyManager.gd" id="6_48ymf"]
 [ext_resource type="AudioStream" uid="uid://0skkb7m10j6l" path="res://Assets/Sounds/wood_sound.mp3" id="7_48ymf"]
 [ext_resource type="Script" uid="uid://bfr0f8w8sxfwf" path="res://Scripts/Managers/PurchaseManager.gd" id="11_jwmyi"]
+[ext_resource type="AudioStream" uid="uid://dcy3t42baj5wd" path="res://Assets/Sounds/calm_forest_ending_thing.wav" id="14_aawhf"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_km7ha"]
-bg_color = Color(0.23137255, 0.15294118, 0.6, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nspe4"]
+draw_center = false
 
 [sub_resource type="GDScript" id="GDScript_ivtx6"]
 script/source = "extends MarginContainer
@@ -39,8 +41,8 @@ bg_color = Color(0.15487596, 0.154876, 0.15487587, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jwmyi"]
 bg_color = Color(0, 0.45456356, 0.3272291, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4jv7b"]
-bg_color = Color(0.08827009, 0, 0.295882, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aawhf"]
+bg_color = Color(0.16371453, 0.081453376, 0.03607874, 0.88235295)
 
 [node name="Game" type="Control" unique_id=2118027152]
 layout_mode = 3
@@ -52,6 +54,16 @@ grow_vertical = 2
 script = ExtResource("1_ivtx6")
 button_scene = ExtResource("2_3xgnh")
 metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=2046762712]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_nspe4")
+expand_mode = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=189513577]
 layout_mode = 1
@@ -67,7 +79,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 3.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_km7ha")
+theme_override_styles/panel = SubResource("StyleBoxFlat_nspe4")
 
 [node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/LeftPanel" unique_id=1668116219]
 layout_mode = 1
@@ -115,6 +127,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("5_g3fkh")
+theme_override_font_sizes/font_size = 22
 text = "total_trees_on_earth"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -136,6 +149,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 theme_override_fonts/font = ExtResource("5_g3fkh")
+theme_override_font_sizes/font_size = 22
 theme_override_styles/background = SubResource("StyleBoxFlat_g3fkh")
 theme_override_styles/fill = SubResource("StyleBoxFlat_jwmyi")
 metadata/_edit_use_anchors_ = true
@@ -156,7 +170,7 @@ metadata/_edit_use_anchors_ = true
 [node name="RightPanel" type="Panel" parent="HBoxContainer" unique_id=1600323006]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_styles/panel = SubResource("StyleBoxFlat_4jv7b")
+theme_override_styles/panel = SubResource("StyleBoxFlat_aawhf")
 
 [node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/RightPanel" unique_id=834347229]
 layout_mode = 1
@@ -174,15 +188,37 @@ theme_override_constants/margin_bottom = 10
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/RightPanel/MarginContainer/VBoxContainer" unique_id=644507306]
+[node name="Control" type="Control" parent="HBoxContainer/RightPanel/MarginContainer/VBoxContainer" unique_id=2086447065]
+custom_minimum_size = Vector2(0, 46)
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="HBoxContainer/RightPanel/MarginContainer/VBoxContainer/HBoxContainer" unique_id=873901238]
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/RightPanel/MarginContainer/VBoxContainer/Control" unique_id=619285361]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_tujvx")
+metadata/_edit_use_anchors_ = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/RightPanel/MarginContainer/VBoxContainer/Control" unique_id=644507306]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.30337077
+anchor_top = 0.07608695
+anchor_right = 0.6966292
+anchor_bottom = 0.92391306
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/RightPanel/MarginContainer/VBoxContainer/Control/HBoxContainer" unique_id=873901238]
 layout_mode = 2
 texture = ExtResource("4_tujvx")
 expand_mode = 2
 
-[node name="GoldLabel" type="Label" parent="HBoxContainer/RightPanel/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1234893310]
+[node name="GoldLabel" type="Label" parent="HBoxContainer/RightPanel/MarginContainer/VBoxContainer/Control/HBoxContainer" unique_id=1234893310]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("5_g3fkh")
 theme_override_font_sizes/font_size = 32
@@ -197,7 +233,9 @@ size_flags_vertical = 3
 [node name="FarmersLabel" type="Label" parent="HBoxContainer/RightPanel/MarginContainer/VBoxContainer/Farmers" unique_id=1788668056]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("5_g3fkh")
+theme_override_font_sizes/font_size = 22
 text = "Farmers"
+horizontal_alignment = 1
 
 [node name="ScrollContainer" type="ScrollContainer" parent="HBoxContainer/RightPanel/MarginContainer/VBoxContainer/Farmers" unique_id=2094350089]
 layout_mode = 2
@@ -238,6 +276,10 @@ metadata/_custom_type_script = "uid://bfr0f8w8sxfwf"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=319658277]
 stream = ExtResource("7_48ymf")
+
+[node name="BGMusicSound" type="AudioStreamPlayer" parent="." unique_id=1483375147]
+stream = ExtResource("14_aawhf")
+autoplay = true
 
 [connection signal="button_down" from="HBoxContainer/LeftPanel/MarginContainer/CenterContainer/TextureButton" to="UIManager" method="_on_texture_button_button_down"]
 [connection signal="button_up" from="HBoxContainer/LeftPanel/MarginContainer/CenterContainer/TextureButton" to="UIManager" method="_on_texture_button_button_up"]

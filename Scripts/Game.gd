@@ -6,12 +6,11 @@ extends Control
 @onready var economy_manager: EconomyManager = $EconomyManager
 
 # Nodes
-@onready var gold_label: Label = $HBoxContainer/LeftPanel/MarginContainer/Panel/Stats/GoldLabel
+@onready var gold_label: Label = $HBoxContainer/RightPanel/MarginContainer/VBoxContainer/Control/HBoxContainer/GoldLabel
 @onready var upgrades_container: VBoxContainer = $HBoxContainer/RightPanel/MarginContainer/VBoxContainer/Upgrades/UpgradesContainer
 @export var button_scene: PackedScene
-@onready var money_per_sec_label: Label = $HBoxContainer/LeftPanel/MarginContainer/Panel/Stats/MoneyPerSecLabel
-@onready var tree_remaining_label: Label = $HBoxContainer/LeftPanel/MarginContainer/Panel/Stats/TreeRemainingLabel
-@onready var farmers_container: VBoxContainer = $HBoxContainer/RightPanel/MarginContainer/VBoxContainer/Farmers/FarmersContainer/VBoxContainer
+@onready var farmers_container: VBoxContainer = $HBoxContainer/RightPanel/MarginContainer/VBoxContainer/Farmers/ScrollContainer/FarmersContainer
+@onready var tree_remaining_label: Label = $HBoxContainer/LeftPanel/MarginContainer/Stats/TextureRect/TreeRemainingLabel
 
 var player_damage: float = 1
 
