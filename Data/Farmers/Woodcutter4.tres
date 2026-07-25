@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Farmer" format=3 uid="uid://cdmhai1vtivx4"]
+
+[ext_resource type="Texture2D" uid="uid://dxtbo8nrvhgnt" path="res://Assets/Sprites/Farmers/Woodcutter.png" id="1_vdk2k"]
+[ext_resource type="Script" uid="uid://cj11ytmvpx5b8" path="res://Scripts/Resources/Farmer.gd" id="2_f7jl0"]
+
+[resource]
+script = ExtResource("2_f7jl0")
+damage = 100.0
+type = 1
+id = "woodcutter"
+name = "Woodcutter"
+description = "Woodcutter"
+icon = ExtResource("1_vdk2k")
+cost = 25.0
+metadata/_custom_type_script = "uid://cj11ytmvpx5b8"
