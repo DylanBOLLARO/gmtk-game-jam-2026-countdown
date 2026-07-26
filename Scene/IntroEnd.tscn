@@ -1,0 +1,77 @@
+[gd_scene format=3 uid="uid://cxffayefueyf1"]
+
+[ext_resource type="Texture2D" uid="uid://cjjk54siiku5t" path="res://Assets/Images/IntroStartBG.png" id="1_gwjaw"]
+[ext_resource type="Texture2D" uid="uid://brto0g3ur3047" path="res://Assets/Sprites/Buttons/button1_default.png" id="2_ya5wj"]
+[ext_resource type="Texture2D" uid="uid://8j24mtesogkr" path="res://Assets/Sprites/Buttons/button1_pressed.png" id="3_t7388"]
+[ext_resource type="Texture2D" uid="uid://cy3c01hsjaxlj" path="res://Assets/Sprites/Buttons/button1_hoever.png" id="4_e38ff"]
+[ext_resource type="FontFile" uid="uid://dvr2m4urmb23h" path="res://Assets/Fonts/PixelifySans-VariableFont_wght.ttf" id="5_71tlj"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m7x42"]
+bg_color = Color(0, 0, 0, 0.5882353)
+
+[node name="Intro" type="Control" unique_id=1417635624]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=386052205]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_gwjaw")
+expand_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Panel" type="Panel" parent="." unique_id=1259933150]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_m7x42")
+metadata/_edit_use_anchors_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel" unique_id=146091557]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+metadata/_edit_use_anchors_ = true
+
+[node name="Credits" type="TextureButton" parent="Panel/MarginContainer" unique_id=779827050]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+texture_normal = ExtResource("2_ya5wj")
+texture_pressed = ExtResource("3_t7388")
+texture_hover = ExtResource("4_e38ff")
+
+[node name="CreditsLabel" type="Label" parent="Panel/MarginContainer/Credits" unique_id=1205987200]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("5_71tlj")
+theme_override_font_sizes/font_size = 40
+text = "MENU"

@@ -1,0 +1,88 @@
+[gd_scene format=3 uid="uid://kmlbt2foi3l1"]
+
+[ext_resource type="Texture2D" uid="uid://brto0g3ur3047" path="res://Assets/Sprites/Buttons/button1_default.png" id="1_1kb82"]
+[ext_resource type="Script" uid="uid://diemo6x6knbok" path="res://Scripts/Credit.gd" id="1_6wfcj"]
+[ext_resource type="Texture2D" uid="uid://8j24mtesogkr" path="res://Assets/Sprites/Buttons/button1_pressed.png" id="2_6wfcj"]
+[ext_resource type="Texture2D" uid="uid://bjyhcei6lxllx" path="res://Assets/Images/ForestB.png" id="2_rdg2u"]
+[ext_resource type="Texture2D" uid="uid://cy3c01hsjaxlj" path="res://Assets/Sprites/Buttons/button1_hoever.png" id="3_rdg2u"]
+[ext_resource type="FontFile" uid="uid://dvr2m4urmb23h" path="res://Assets/Fonts/PixelifySans-VariableFont_wght.ttf" id="4_f23kf"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yj1dy"]
+bg_color = Color(0, 0, 0, 0.5882353)
+
+[node name="Credit" type="Control" unique_id=803889300]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6wfcj")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=663171829]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_rdg2u")
+expand_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Panel" type="Panel" parent="." unique_id=209274657]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_yj1dy")
+metadata/_edit_use_anchors_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel" unique_id=29810975]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="Panel/MarginContainer" unique_id=141737256]
+layout_mode = 2
+size_flags_vertical = 0
+text = "credit page"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Credits" type="TextureButton" parent="Panel/MarginContainer" unique_id=377631896]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+texture_normal = ExtResource("1_1kb82")
+texture_pressed = ExtResource("2_6wfcj")
+texture_hover = ExtResource("3_rdg2u")
+
+[node name="CreditsLabel" type="Label" parent="Panel/MarginContainer/Credits" unique_id=1403196157]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_f23kf")
+theme_override_font_sizes/font_size = 40
+text = "MENU"
+
+[connection signal="button_down" from="Panel/MarginContainer/Credits" to="." method="_on_credits_button_down"]

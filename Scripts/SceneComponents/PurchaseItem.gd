@@ -19,7 +19,7 @@ func setup(item_data):
 func _ready() -> void:
 		name_panel.text = data.name
 		purchase_icon.texture = data.icon
-		purchase_cost_label.text = str(data.cost)
+		purchase_cost_label.text = str(Utils.format_compact_number(data.cost))
 		
 		var red_style = StyleBoxFlat.new()
 		red_style.bg_color = Color(0.45, 0.05, 0.05) # dark red

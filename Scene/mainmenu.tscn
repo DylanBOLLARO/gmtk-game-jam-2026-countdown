@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://cy3c01hsjaxlj" path="res://Assets/Sprites/Buttons/button1_hoever.png" id="4_ebm2f"]
 [ext_resource type="AudioStream" uid="uid://0skkb7m10j6l" path="res://Assets/Sounds/wood_sound.mp3" id="7_ebm2f"]
 [ext_resource type="AudioStream" uid="uid://dcy3t42baj5wd" path="res://Assets/Sounds/calm_forest_ending_thing.wav" id="7_qf8tx"]
+[ext_resource type="Script" uid="uid://celymo7ohhnj2" path="res://Scripts/Managers/SaveManager.gd" id="9_v5kgo"]
 
 [node name="Mainmenu" type="Control" unique_id=616374830]
 layout_mode = 3
@@ -134,6 +135,10 @@ grow_vertical = 2
 theme_override_fonts/font = ExtResource("1_tfeq1")
 theme_override_font_sizes/font_size = 40
 text = "Exit"
+
+[node name="SaveManager" type="Node" parent="." unique_id=1358804776]
+script = ExtResource("9_v5kgo")
+metadata/_custom_type_script = "uid://celymo7ohhnj2"
 
 [node name="BGMusicSound" type="AudioStreamPlayer" parent="." unique_id=1253319729]
 stream = ExtResource("7_qf8tx")

@@ -12,3 +12,11 @@ enum Stat {
 	GOLD_PER_SECOND,
 	GOLD_MULTIPLIER
 }
+
+enum Scene {
+	MAIN_MENU,
+	GAME,
+	CREDIT,
+	INTRO_START,
+	INTRO_END
+}

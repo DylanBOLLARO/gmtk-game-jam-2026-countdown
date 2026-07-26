@@ -1,15 +1,15 @@
 [gd_resource type="Resource" script_class="Farmer" format=3 uid="uid://dx5drf2fgkakx"]
 
-[ext_resource type="Texture2D" uid="uid://ml7wf0yavhud" path="res://Assets/Sprites/Farmers/Minotaur.png" id="1_5tn2y"]
+[ext_resource type="Texture2D" uid="uid://dv6ihpbt4yb4u" path="res://Assets/Sprites/Characters/Ch_2.png" id="1_j747u"]
 [ext_resource type="Script" uid="uid://cj11ytmvpx5b8" path="res://Scripts/Resources/Farmer.gd" id="2_j477v"]
 
 [resource]
 script = ExtResource("2_j477v")
-damage = 1500.0
+damage = 1000.0
 type = 2
-id = "minotaur"
-name = "Minotaur"
-description = "Minotaur"
-icon = ExtResource("1_5tn2y")
-cost = 250.0
+id = "ch_2"
+name = "Thorgim"
+description = "Thorgim"
+icon = ExtResource("1_j747u")
+cost = 1000.0
 metadata/_custom_type_script = "uid://cj11ytmvpx5b8"

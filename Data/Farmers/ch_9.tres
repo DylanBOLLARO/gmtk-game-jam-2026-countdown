@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Farmer" format=3 uid="uid://d3b63fbbdidx0"]
+
+[ext_resource type="Texture2D" uid="uid://coaw4yly0kx7u" path="res://Assets/Sprites/Characters/Ch_9.png" id="1_ta5f6"]
+[ext_resource type="Script" uid="uid://cj11ytmvpx5b8" path="res://Scripts/Resources/Farmer.gd" id="2_xa5gm"]
+
+[resource]
+script = ExtResource("2_xa5gm")
+damage = 10000000000.0
+type = 1
+id = "ch_9"
+name = "Thorek"
+description = "Thorek"
+icon = ExtResource("1_ta5f6")
+cost = 10000000000.0
+metadata/_custom_type_script = "uid://cj11ytmvpx5b8"

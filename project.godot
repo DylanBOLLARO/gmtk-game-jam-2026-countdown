@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 TransitionScene="*uid://jo6fv3xgj7x7"
 GameEnums="*uid://4183rk725ike"
+Utils="*uid://yeojo1ch58uq"
 
 [display]
 

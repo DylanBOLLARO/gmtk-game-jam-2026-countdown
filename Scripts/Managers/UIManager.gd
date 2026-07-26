@@ -12,30 +12,29 @@ signal on_player_click_on_tree
 # Nodes
 @onready var texture_button: TextureButton = $"../HBoxContainer/LeftPanel/MarginContainer/CenterContainer/TextureButton"
 @onready var current_tree_hp_bar: ProgressBar = $"../HBoxContainer/LeftPanel/MarginContainer/Stats/Container/CurrentTreeHPBar"
-
 @onready var audio_stream_player: AudioStreamPlayer = $"../AudioStreamPlayer"
 @onready var tree_remaining_label: Label = $"../HBoxContainer/LeftPanel/MarginContainer/Stats/TextureRect/TreeRemainingLabel"
 @onready var farmers_container: VBoxContainer = $"../HBoxContainer/RightPanel/MarginContainer/VBoxContainer/Farmers/ScrollContainer/FarmersContainer"
 @onready var gold_label: Label = $"../HBoxContainer/RightPanel/MarginContainer/VBoxContainer/Control/HBoxContainer/GoldLabel"
+@onready var menu_dialog: Control = $"../MenuDialog"
 
 var button_scene: PackedScene = preload("uid://d1xqtaxjiigr6")
 
-var all_farmers = [
-	preload("res://Data/Farmers/Woodcutter.tres"),
-	#preload("res://Data/Farmers/Minotaur.tres"),
-	#preload("res://Data/Farmers/Woodcutter2.tres"),
-	#preload("res://Data/Farmers/Woodcutter3.tres"),
-	#preload("res://Data/Farmers/Woodcutter4.tres"),
-	#preload("res://Data/Farmers/Woodcutter5.tres"),
-	#preload("res://Data/Farmers/Woodcutter6.tres"),
-	#preload("res://Data/Farmers/Woodcutter7.tres"),
-]
+var all_farmers = []
 
+func init_farmers_data():
+	for i in range(10):
+		all_farmers.append(load("res://Data/Farmers/ch_%d.tres" % (i + 1)))
+		
 func init_ui():
+	menu_dialog.visible = false
+	init_farmers_data()
+	
 	update_ui_player_gold()
 	update_ui_tree_remaining()
 	update_ui_current_tree_hp()
 	update_ui_farmers()
+	
 	
 func _ready() -> void:
 	economy_manager.on_gold_changed.connect(update_ui_player_gold)
@@ -55,21 +54,11 @@ func _on_texture_button_button_up() -> void:
 	tween.tween_property(texture_button,"scale",Vector2(1,1),.03)
 
 func update_ui_player_gold():
-	gold_label.text = str(round((economy_manager.gold)))
-	
-func format_with_spaces(number: int) -> String:
-	var s = str(number)
-	var result = ""
-	var count = 0
-	for i in range(s.length() - 1, -1, -1):
-		result = s[i] + result
-		count += 1
-		if count % 3 == 0 and i != 0:
-			result = " " + result
-	return result
+	gold_label.text = str(Utils.format_compact_number(economy_manager.gold))
 	
 func update_ui_tree_remaining():
-	tree_remaining_label.text = format_with_spaces(tree_manager.total_trees_on_earth-tree_manager.total_trees_cut_down)
+	
+	tree_remaining_label.text = Utils.format_with_spaces(max(tree_manager.total_trees_on_earth-tree_manager.total_trees_cut_down, 0))
 
 func update_ui_current_tree_hp():
 	current_tree_hp_bar.max_value = tree_manager.current_tree_max_hp
@@ -117,3 +106,15 @@ func update_ui_farmers():
 func on_item_purchased(data):
 	economy_manager.add_gold(data.cost * -1)
 	purchase_manager.add_item(data)
+
+
+func _on_main_menu_button_button_down() -> void:
+	Utils.open_scene(GameEnum.Scene.MAIN_MENU)
+
+
+func _on_continue_button_button_down() -> void:
+	menu_dialog.visible = false
+
+
+func _on_open_dialog_menu_button_button_down() -> void:
+	menu_dialog.visible = true

@@ -1,15 +1,15 @@
 [gd_resource type="Resource" script_class="Farmer" format=3 uid="uid://7crnbv1te7eh"]
 
-[ext_resource type="Texture2D" uid="uid://dxtbo8nrvhgnt" path="res://Assets/Sprites/Farmers/Woodcutter.png" id="1_vw6iy"]
+[ext_resource type="Texture2D" uid="uid://bybhymr8crn1e" path="res://Assets/Sprites/Characters/Ch_7.png" id="1_cjfbx"]
 [ext_resource type="Script" uid="uid://cj11ytmvpx5b8" path="res://Scripts/Resources/Farmer.gd" id="2_sqlcc"]
 
 [resource]
 script = ExtResource("2_sqlcc")
-damage = 100.0
+damage = 100000000.0
 type = 1
-id = "woodcutter"
-name = "Woodcutter"
-description = "Woodcutter"
-icon = ExtResource("1_vw6iy")
-cost = 25.0
+id = "ch_7"
+name = "Hargin"
+description = "Hargin"
+icon = ExtResource("1_cjfbx")
+cost = 100000000.0
 metadata/_custom_type_script = "uid://cj11ytmvpx5b8"

@@ -1,18 +1,18 @@
 extends Control
 
+@onready var save_manager: SaveManager = get_tree().current_scene.get_node("SaveManager")
 @onready var hover_sound: AudioStreamPlayer = $HoverSound
 
-func _ready() -> void:
-	pass # Replace with function body.
-
 func _on_play_button_down() -> void:
-	TransitionScene.transition()
-	await TransitionScene.on_transition_finishd
-	get_tree().change_scene_to_packed(preload("res://Scene/Game.tscn"))
-
+	if save_manager.intro_start_has_been_watched:
+		save_manager.intro_start_has_been_watched = true
+		save_manager.save_data()
+		Utils.open_scene(GameEnum.Scene.GAME)
+	else:
+		Utils.open_scene(GameEnum.Scene.INTRO_START)
 
 func _on_credits_button_down() -> void:
-	pass # Replace with function body.
+	Utils.open_scene(GameEnum.Scene.CREDIT)
 
 func _on_exit_button_down() -> void:
 	TransitionScene.transition()
@@ -27,3 +27,6 @@ func _on_credits_mouse_entered() -> void:
 
 func _on_exit_mouse_entered() -> void:
 	hover_sound.play()
+
+func  _ready() -> void:
+	save_manager.load_data()

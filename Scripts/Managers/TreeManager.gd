@@ -44,7 +44,7 @@ func  _ready() -> void:
 	
 	generate_new_tree_sprite()
 	generate_tree_stats()
-	ui_manager.on_player_click_on_tree.connect(hit_tree.bind(1 +(total_trees_cut_down^5)))
+	ui_manager.on_player_click_on_tree.connect(hit_tree.bind(1 +(total_trees_cut_down ^ 5)))
 
 func generate_new_tree():
 	generate_new_tree_sprite()
@@ -53,10 +53,13 @@ func generate_new_tree():
 func hit_tree(amount:float = 1.0):
 	current_tree_hp -= amount
 	
+	if total_trees_cut_down >= total_trees_on_earth:
+		Utils.open_scene(GameEnum.Scene.INTRO_END)
+			
 	if current_tree_hp <= 0:
-		total_trees_cut_down += 1 + total_trees_cut_down
+		total_trees_cut_down +=  max(1 + total_trees_cut_down, 0)
 		generate_new_tree()
 		ui_manager.update_ui_tree_remaining()
-		economy_manager.add_gold(1 + total_trees_cut_down)
+		economy_manager.add_gold(1 + total_trees_cut_down / 3)
 		
 	ui_manager.update_ui_current_tree_hp()

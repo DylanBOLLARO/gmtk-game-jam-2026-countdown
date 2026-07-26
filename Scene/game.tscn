@@ -9,7 +9,10 @@
 [ext_resource type="Script" uid="uid://dake2vapcw1mw" path="res://Scripts/Managers/TreeManager.gd" id="5_tujvx"]
 [ext_resource type="Script" uid="uid://hrfm2gihl1pd" path="res://Scripts/Managers/UIManager.gd" id="6_3xgnh"]
 [ext_resource type="Script" uid="uid://b56xogve14e80" path="res://Scripts/Managers/EconomyManager.gd" id="6_48ymf"]
+[ext_resource type="Texture2D" uid="uid://brto0g3ur3047" path="res://Assets/Sprites/Buttons/button1_default.png" id="7_13sni"]
 [ext_resource type="AudioStream" uid="uid://0skkb7m10j6l" path="res://Assets/Sounds/wood_sound.mp3" id="7_48ymf"]
+[ext_resource type="Texture2D" uid="uid://8j24mtesogkr" path="res://Assets/Sprites/Buttons/button1_pressed.png" id="8_bxrg2"]
+[ext_resource type="Texture2D" uid="uid://cy3c01hsjaxlj" path="res://Assets/Sprites/Buttons/button1_hoever.png" id="9_ilbig"]
 [ext_resource type="Script" uid="uid://bfr0f8w8sxfwf" path="res://Scripts/Managers/PurchaseManager.gd" id="11_jwmyi"]
 [ext_resource type="Script" uid="uid://celymo7ohhnj2" path="res://Scripts/Managers/SaveManager.gd" id="13_nspe4"]
 [ext_resource type="AudioStream" uid="uid://dcy3t42baj5wd" path="res://Assets/Sounds/calm_forest_ending_thing.wav" id="14_aawhf"]
@@ -42,6 +45,9 @@ bg_color = Color(0, 0.45456356, 0.3272291, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aawhf"]
 bg_color = Color(0.16371453, 0.081453376, 0.03607874, 0.88235295)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_13sni"]
+bg_color = Color(0, 0, 0, 0.8235294)
 
 [node name="Game" type="Control" unique_id=2118027152]
 layout_mode = 3
@@ -255,6 +261,104 @@ text = "Upgrades"
 layout_mode = 2
 size_flags_vertical = 3
 
+[node name="OpenDialogMenuButton" type="TextureButton" parent="HBoxContainer/RightPanel/MarginContainer/VBoxContainer" unique_id=1927351370]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("7_13sni")
+texture_pressed = ExtResource("8_bxrg2")
+texture_hover = ExtResource("9_ilbig")
+
+[node name="Label" type="Label" parent="HBoxContainer/RightPanel/MarginContainer/VBoxContainer/OpenDialogMenuButton" unique_id=606715534]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("5_g3fkh")
+theme_override_font_sizes/font_size = 32
+text = "MENU"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="MenuDialog" type="Control" parent="." unique_id=581245583]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Panel" type="Panel" parent="MenuDialog" unique_id=1807897373]
+custom_minimum_size = Vector2(600, 300)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_13sni")
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MenuDialog" unique_id=2101758218]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 30
+metadata/_edit_use_anchors_ = true
+
+[node name="MainMenuButton" type="TextureButton" parent="MenuDialog/VBoxContainer" unique_id=739696919]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("7_13sni")
+texture_pressed = ExtResource("8_bxrg2")
+texture_hover = ExtResource("9_ilbig")
+
+[node name="Label" type="Label" parent="MenuDialog/VBoxContainer/MainMenuButton" unique_id=357837993]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("5_g3fkh")
+theme_override_font_sizes/font_size = 32
+text = "MAIN MENU"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="ContinueButton" type="TextureButton" parent="MenuDialog/VBoxContainer" unique_id=262089663]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("7_13sni")
+texture_pressed = ExtResource("8_bxrg2")
+texture_hover = ExtResource("9_ilbig")
+
+[node name="Label" type="Label" parent="MenuDialog/VBoxContainer/ContinueButton" unique_id=357229559]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("5_g3fkh")
+theme_override_font_sizes/font_size = 32
+text = "CONTINUE"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
 [node name="TreeManager" type="Node" parent="." unique_id=168392632]
 script = ExtResource("5_tujvx")
 metadata/_custom_type_script = "uid://dake2vapcw1mw"
@@ -284,3 +388,6 @@ autoplay = true
 
 [connection signal="button_down" from="HBoxContainer/LeftPanel/MarginContainer/CenterContainer/TextureButton" to="UIManager" method="_on_texture_button_button_down"]
 [connection signal="button_up" from="HBoxContainer/LeftPanel/MarginContainer/CenterContainer/TextureButton" to="UIManager" method="_on_texture_button_button_up"]
+[connection signal="button_down" from="HBoxContainer/RightPanel/MarginContainer/VBoxContainer/OpenDialogMenuButton" to="UIManager" method="_on_open_dialog_menu_button_button_down"]
+[connection signal="button_down" from="MenuDialog/VBoxContainer/MainMenuButton" to="UIManager" method="_on_main_menu_button_button_down"]
+[connection signal="button_down" from="MenuDialog/VBoxContainer/ContinueButton" to="UIManager" method="_on_continue_button_button_down"]
