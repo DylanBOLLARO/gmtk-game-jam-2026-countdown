@@ -7,7 +7,7 @@ class_name PurchaseItem
 @onready var name_panel: Label = $VBoxContainer/NamePanel
 @onready var purchase_cost_label: Label = $VBoxContainer/MarginContainer/HBoxContainer/PurchaseButton/PurchaseCostLabel
 @onready var purchase_icon: TextureRect = $VBoxContainer/MarginContainer/HBoxContainer/PurchaseIcon
-@onready var purchase_button: Button = $VBoxContainer/MarginContainer/HBoxContainer/PurchaseButton
+@onready var purchase_button: TextureButton = $VBoxContainer/MarginContainer/HBoxContainer/PurchaseButton
 
 var data
 

@@ -74,7 +74,7 @@ func _ready() -> void:
 	})
 	pages.append({
 		"index": 2,
-		"duration": 10,
+		"duration": 41,
 		"label": "Narrator – Possible? Even Gurdil would’ve bet two barrels of beer that it was impossible to get any dumber!\nThose idiots think the trees are talking and telling them to invade us!\nAt first, we had a good laugh with the guys, but then they started coming to our place and growing trees in our mining sites!!\n\nDwarf – But how are we going to stop them?!\nNarrator – With our axes, of course!!\n\nCome on over, because today is dandelion-eater recycling day and a big deforestation operation!",
 		"background_image": "res://Assets/Images/IntroEndBG.png",
 		"sound":"res://Assets/Sounds/lightyeartraxx-kim-lightyear-angel-eyes-chiptune-edit-110226.mp3",

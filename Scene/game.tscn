@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://cav0wf4spwk1e"]
 
+[ext_resource type="Script" uid="uid://c3f7gsvsftad5" path="res://Scene/game.gd" id="1_bxrg2"]
 [ext_resource type="Texture2D" uid="uid://bn5tujghrwocj" path="res://Assets/Images/ForestA.png" id="3_nspe4"]
 [ext_resource type="Texture2D" uid="uid://bf77rnonejbhv" path="res://Assets/UI/countbar.png" id="3_tujvx"]
 [ext_resource type="Texture2D" uid="uid://dsg0lfrmn435q" path="res://Assets/UI/healthbar.png" id="4_2j816"]
@@ -56,6 +57,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_bxrg2")
 metadata/_edit_use_anchors_ = true
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=2046762712]
