@@ -12,8 +12,6 @@ func open_scene(in_scene:GameEnum.Scene):
 			scene_to_load = preload("res://Scene/Credit.tscn")
 		GameEnum.Scene.INTRO_START:
 			scene_to_load = preload("res://Scene/IntroStart.tscn")
-		GameEnum.Scene.INTRO_END:
-			scene_to_load = preload("res://Scene/IntroEnd.tscn")
 			
 	if scene_to_load:
 		TransitionScene.transition()

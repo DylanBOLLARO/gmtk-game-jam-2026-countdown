@@ -13,15 +13,11 @@ var _last_sound_path := {}
 func play_sound(player: AudioStreamPlayer, path) -> void:
 	if path == null or path == "":
 		return
-
 	if _last_sound_path.get(player) == path and player.playing:
 		return
-
 	var stream = load(path)
 	if stream == null:
-		push_warning("Could not load sound: " + str(path))
 		return
-
 	_last_sound_path[player] = path
 	player.stream = stream
 	player.play()
@@ -74,7 +70,7 @@ func _ready() -> void:
 			Especially lately, ever since those idiots had the brilliant idea to suck on a stick that gave them a virus!\nSince then, almost all of them have gotten even crazier, with really gray skin!\n\nDwarf – Is that even possible?!",
 		"background_image": "res://Assets/Images/IntroEndBG.png",
 		"sound":"res://Assets/Sounds/lightyeartraxx-kim-lightyear-angel-eyes-chiptune-edit-110226.mp3",
-		"sound_voices":"res://Assets/Sounds/voices/sound_voices_intro_page_2.wav.wav"
+		"sound_voices":"res://Assets/Sounds/voices/sound_voices_intro_page_2.wav"
 	})
 	pages.append({
 		"index": 2,
@@ -82,7 +78,7 @@ func _ready() -> void:
 		"label": "Narrator – Possible? Even Gurdil would’ve bet two barrels of beer that it was impossible to get any dumber!\nThose idiots think the trees are talking and telling them to invade us!\nAt first, we had a good laugh with the guys, but then they started coming to our place and growing trees in our mining sites!!\n\nDwarf – But how are we going to stop them?!\nNarrator – With our axes, of course!!\n\nCome on over, because today is dandelion-eater recycling day and a big deforestation operation!",
 		"background_image": "res://Assets/Images/IntroEndBG.png",
 		"sound":"res://Assets/Sounds/lightyeartraxx-kim-lightyear-angel-eyes-chiptune-edit-110226.mp3",
-		"sound_voices":"res://Assets/Sounds/voices/sound_voices_intro_page_2.wav.wav"
+		"sound_voices":"res://Assets/Sounds/voices/sound_voices_intro_page_3.wav"
 	})
 
 	for i in range(pages.size()):
