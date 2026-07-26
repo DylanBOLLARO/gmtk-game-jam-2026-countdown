@@ -1,13 +1,12 @@
 [gd_resource type="Resource" script_class="Farmer" format=3 uid="uid://r0c3anfwnhmh"]
 
-[ext_resource type="Texture2D" uid="uid://r5lfb78i66bx" path="res://Assets/Sprites/Characters/Ch_10.png" id="1_javjb"]
+[ext_resource type="Texture2D" uid="uid://6hmjr8fqiaxm" path="res://Assets/Sprites/Characters/Ch_10.png" id="1_javjb"]
 [ext_resource type="Script" uid="uid://cj11ytmvpx5b8" path="res://Scripts/Resources/Farmer.gd" id="2_nkbf7"]
 
 [resource]
 script = ExtResource("2_nkbf7")
 damage = 100000000000.0
-type = 1
-id = "ch_10"
+type = 9
 name = "Minotaur"
 description = "Minotaur"
 icon = ExtResource("1_javjb")

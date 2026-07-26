@@ -1,13 +1,12 @@
 [gd_resource type="Resource" script_class="Farmer" format=3 uid="uid://dx5drf2fgkakx"]
 
-[ext_resource type="Texture2D" uid="uid://dv6ihpbt4yb4u" path="res://Assets/Sprites/Characters/Ch_2.png" id="1_j747u"]
+[ext_resource type="Texture2D" uid="uid://ctwho1unl510b" path="res://Assets/Sprites/Characters/Ch_2.png" id="1_j747u"]
 [ext_resource type="Script" uid="uid://cj11ytmvpx5b8" path="res://Scripts/Resources/Farmer.gd" id="2_j477v"]
 
 [resource]
 script = ExtResource("2_j477v")
 damage = 1000.0
-type = 2
-id = "ch_2"
+type = 1
 name = "Thorgim"
 description = "Thorgim"
 icon = ExtResource("1_j747u")

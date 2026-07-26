@@ -1,13 +1,11 @@
 [gd_resource type="Resource" script_class="Farmer" format=3 uid="uid://dt6hb4jmsodwk"]
 
-[ext_resource type="Texture2D" uid="uid://2jpkh7h0uty4" path="res://Assets/Sprites/Characters/Ch_1.png" id="1_k3bik"]
+[ext_resource type="Texture2D" uid="uid://de6ktuouw6uof" path="res://Assets/Sprites/Characters/Ch_1.png" id="1_k3bik"]
 [ext_resource type="Script" uid="uid://cj11ytmvpx5b8" path="res://Scripts/Resources/Farmer.gd" id="1_v5ag4"]
 
 [resource]
 script = ExtResource("1_v5ag4")
 damage = 100.0
-type = 1
-id = "ch_1"
 name = "Brokkar"
 description = "Brokkar"
 icon = ExtResource("1_k3bik")

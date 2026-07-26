@@ -4,10 +4,10 @@
 [ext_resource type="Texture2D" uid="uid://bf77rnonejbhv" path="res://Assets/UI/countbar.png" id="3_tujvx"]
 [ext_resource type="Texture2D" uid="uid://dsg0lfrmn435q" path="res://Assets/UI/healthbar.png" id="4_2j816"]
 [ext_resource type="Texture2D" uid="uid://c62jnnb5f70n" path="res://Assets/Trees/Tree1.png" id="4_cohtu"]
-[ext_resource type="Texture2D" uid="uid://drp4ry71m3t4b" path="res://Assets/gold.png" id="4_tujvx"]
 [ext_resource type="FontFile" uid="uid://dvr2m4urmb23h" path="res://Assets/Fonts/PixelifySans-VariableFont_wght.ttf" id="5_g3fkh"]
 [ext_resource type="Script" uid="uid://dake2vapcw1mw" path="res://Scripts/Managers/TreeManager.gd" id="5_tujvx"]
 [ext_resource type="Script" uid="uid://hrfm2gihl1pd" path="res://Scripts/Managers/UIManager.gd" id="6_3xgnh"]
+[ext_resource type="Texture2D" uid="uid://1utcu35ynkmh" path="res://Assets/UI/coin.png" id="6_13sni"]
 [ext_resource type="Script" uid="uid://b56xogve14e80" path="res://Scripts/Managers/EconomyManager.gd" id="6_48ymf"]
 [ext_resource type="Texture2D" uid="uid://brto0g3ur3047" path="res://Assets/Sprites/Buttons/button1_default.png" id="7_13sni"]
 [ext_resource type="AudioStream" uid="uid://0skkb7m10j6l" path="res://Assets/Sounds/wood_sound.mp3" id="7_48ymf"]
@@ -218,7 +218,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="TextureRect" type="TextureRect" parent="HBoxContainer/RightPanel/MarginContainer/VBoxContainer/Control/HBoxContainer" unique_id=873901238]
 layout_mode = 2
-texture = ExtResource("4_tujvx")
+texture = ExtResource("6_13sni")
 expand_mode = 2
 
 [node name="GoldLabel" type="Label" parent="HBoxContainer/RightPanel/MarginContainer/VBoxContainer/Control/HBoxContainer" unique_id=1234893310]
@@ -284,6 +284,7 @@ vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="MenuDialog" type="Control" parent="." unique_id=581245583]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

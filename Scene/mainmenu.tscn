@@ -38,16 +38,32 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Game Title" type="Label" parent="." unique_id=2106503184]
+[node name="TextureRect2" type="TextureRect" parent="." unique_id=382805412]
+custom_minimum_size = Vector2(300, 0)
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -137.5
-offset_top = 75.0
-offset_right = 137.5
-offset_bottom = 139.0
+offset_left = -219.0
+offset_top = 43.0
+offset_right = 220.2857
+offset_bottom = 166.0
 grow_horizontal = 2
+texture = ExtResource("2_tafl8")
+
+[node name="Game Title" type="Label" parent="TextureRect2" unique_id=2106503184]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -129.0
+offset_top = -38.5
+offset_right = 129.0
+offset_bottom = 38.5
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_fonts/font = ExtResource("1_tfeq1")
 theme_override_font_sizes/font_size = 64
 text = "Treellion"

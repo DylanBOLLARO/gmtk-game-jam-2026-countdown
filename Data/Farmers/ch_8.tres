@@ -1,13 +1,12 @@
 [gd_resource type="Resource" script_class="Farmer" format=3 uid="uid://d2ae5cd20muof"]
 
-[ext_resource type="Texture2D" uid="uid://bjmf5bgs0f2x1" path="res://Assets/Sprites/Characters/Ch_8.png" id="1_ufdjf"]
+[ext_resource type="Texture2D" uid="uid://dmfuesjksv4ll" path="res://Assets/Sprites/Characters/Ch_8.png" id="1_ufdjf"]
 [ext_resource type="Script" uid="uid://cj11ytmvpx5b8" path="res://Scripts/Resources/Farmer.gd" id="2_seojw"]
 
 [resource]
 script = ExtResource("2_seojw")
 damage = 1000000000.0
-type = 1
-id = "ch_8"
+type = 7
 name = "Ormund"
 description = "Ormund"
 icon = ExtResource("1_ufdjf")

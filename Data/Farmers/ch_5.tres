@@ -1,13 +1,12 @@
 [gd_resource type="Resource" script_class="Farmer" format=3 uid="uid://cdmhai1vtivx4"]
 
-[ext_resource type="Texture2D" uid="uid://bb4s0qkowcek" path="res://Assets/Sprites/Characters/Ch_5.png" id="1_32em7"]
+[ext_resource type="Texture2D" uid="uid://cnl3aevy0llgi" path="res://Assets/Sprites/Characters/Ch_5.png" id="1_32em7"]
 [ext_resource type="Script" uid="uid://cj11ytmvpx5b8" path="res://Scripts/Resources/Farmer.gd" id="2_f7jl0"]
 
 [resource]
 script = ExtResource("2_f7jl0")
 damage = 1000000.0
-type = 1
-id = "ch_5"
+type = 4
 name = "Baldrik"
 description = "Baldrik"
 icon = ExtResource("1_32em7")

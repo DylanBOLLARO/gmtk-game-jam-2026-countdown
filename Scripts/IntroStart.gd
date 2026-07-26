@@ -2,11 +2,17 @@ extends Control
 @onready var texture_rect: TextureRect = $TextureRect
 @onready var label: Label = $Panel/MarginContainer/Label
 var pages = []
+@onready var texture_button: TextureButton = $TextureButton
 
+	
+	
 func play_page(config):
+	# when i click on texture_button i want to skip this page to go to next one
+	
 	if config.get("index") != 0:
 		TransitionScene.transition()
 		await TransitionScene.on_transition_finishd
+		
 	texture_rect.texture = load(config.get("background_image"))
 	label.text = config.get("label")
 	await get_tree().create_timer(config.get("duration")).timeout
@@ -36,3 +42,7 @@ func _ready() -> void:
 		await play_page(pages[i])
 		
 	Utils.open_scene(GameEnum.Scene.GAME)
+
+
+func _on_texture_button_button_down() -> void:
+	pass # Replace with function body.

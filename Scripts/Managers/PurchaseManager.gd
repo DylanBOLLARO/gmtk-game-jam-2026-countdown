@@ -10,16 +10,15 @@ var owned_upgrades = []
 
 func add_item(item_data):
 	if item_data is Farmer:
-		if owned_farmers.has(item_data.id):
-			owned_farmers[item_data.id]["amount"] += 1
+		if owned_farmers.has(item_data.type):
+			owned_farmers[item_data.type]["amount"] += 1
 		else:
-			owned_farmers[item_data.id] = {
+			owned_farmers[item_data.type] = {
 				"data": item_data,
 				"amount": 1
 			}
-	elif item_data is Upgrade:
-		owned_upgrades.append(item_data)
-		
+	economy_manager.on_gold_changed.emit()
+	
 func _process(delta: float) -> void:
 	for it_farmer in owned_farmers.keys():
 		var data = owned_farmers[it_farmer].get("data")

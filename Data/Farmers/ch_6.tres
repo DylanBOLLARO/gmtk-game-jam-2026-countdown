@@ -1,13 +1,12 @@
 [gd_resource type="Resource" script_class="Farmer" format=3 uid="uid://c1f6mvj2mv41h"]
 
-[ext_resource type="Texture2D" uid="uid://b5b7b3dqvadte" path="res://Assets/Sprites/Characters/Ch_6.png" id="1_16rsd"]
+[ext_resource type="Texture2D" uid="uid://by3qgf30mqa85" path="res://Assets/Sprites/Characters/Ch_6.png" id="1_16rsd"]
 [ext_resource type="Script" uid="uid://cj11ytmvpx5b8" path="res://Scripts/Resources/Farmer.gd" id="2_vk41m"]
 
 [resource]
 script = ExtResource("2_vk41m")
 damage = 10000000.0
-type = 1
-id = "ch_6"
+type = 5
 name = "Morgran"
 description = "Morgran"
 icon = ExtResource("1_16rsd")
