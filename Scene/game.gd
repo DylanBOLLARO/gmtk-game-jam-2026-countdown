@@ -6,4 +6,3 @@ func _ready() -> void:
 
 func _on_bg_music_finished() -> void:
 	bg_music_sound.play()
-	
