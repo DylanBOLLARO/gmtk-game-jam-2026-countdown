@@ -8,7 +8,8 @@ class_name TreeManager
 @onready var texture_button: TextureButton = $"../HBoxContainer/LeftPanel/MarginContainer/CenterContainer/TextureButton"
 
 var total_trees_on_earth: int = 3_040_000_000_000
-var total_trees_cut_down: int
+var total_trees_cut_down: int = 0
+
 var current_path = null
 var current_tree_hp: float = 0
 var current_tree_max_hp: float = 0
@@ -54,7 +55,7 @@ func hit_tree(amount:float = 1.0):
 	current_tree_hp -= amount
 	
 	if total_trees_cut_down >= total_trees_on_earth:
-		Utils.open_scene(GameEnum.Scene.INTRO_END)
+		Utils.open_scene(GameEnum.Scene.CREDIT)
 			
 	if current_tree_hp <= 0:
 		total_trees_cut_down +=  max(1 + total_trees_cut_down, 0)

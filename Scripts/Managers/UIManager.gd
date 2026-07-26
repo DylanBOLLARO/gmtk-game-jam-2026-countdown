@@ -78,14 +78,14 @@ func update_ui_farmers():
 	# generate all items in list
 	for item in sorted:
 		var hbox = HBoxContainer.new()
-		hbox.add_theme_constant_override("separation", 30)
+		hbox.add_theme_constant_override("separation", 10)
 		hbox.anchor_right = 1.0
 		hbox.anchor_bottom = 1.0
 		hbox.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	
 		var count_label = Label.new()
 		count_label.text = "x 0"
-		
+		count_label.custom_minimum_size = Vector2(30, 0)  # largeur fixée, hauteur automatique
 		var amount_farmer = 0
 		
 		for it_owned_farmer in purchase_manager.owned_farmers.values():

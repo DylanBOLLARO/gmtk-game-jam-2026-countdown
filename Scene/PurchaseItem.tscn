@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://dpnmb8i74fsgj" path="res://Scripts/SceneComponents/PurchaseItem.gd" id="1_rifja"]
 
 [node name="Control" type="Panel" unique_id=120612465]
-custom_minimum_size = Vector2(100, 100)
+custom_minimum_size = Vector2(75, 80)
 anchors_preset = -1
 anchor_right = 0.19791667
 anchor_bottom = 0.15432099
@@ -38,7 +38,7 @@ theme_override_constants/margin_bottom = 5
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/MarginContainer" unique_id=446877061]
 layout_mode = 2
-theme_override_constants/separation = 10
+theme_override_constants/separation = 20
 
 [node name="PurchaseIcon" type="TextureRect" parent="VBoxContainer/MarginContainer/HBoxContainer" unique_id=669697508]
 custom_minimum_size = Vector2(40, 40)

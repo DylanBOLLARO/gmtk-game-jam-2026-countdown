@@ -1,9 +1,6 @@
 [gd_scene format=3 uid="uid://jm36dd0jpwq6"]
 
-[ext_resource type="Texture2D" uid="uid://cjjk54siiku5t" path="res://Assets/Images/IntroStartBG.png" id="1_oy4r4"]
-[ext_resource type="Texture2D" uid="uid://brto0g3ur3047" path="res://Assets/Sprites/Buttons/button1_default.png" id="2_53r33"]
-[ext_resource type="Texture2D" uid="uid://8j24mtesogkr" path="res://Assets/Sprites/Buttons/button1_pressed.png" id="3_oyxpx"]
-[ext_resource type="Texture2D" uid="uid://cy3c01hsjaxlj" path="res://Assets/Sprites/Buttons/button1_hoever.png" id="4_lp5q5"]
+[ext_resource type="Script" uid="uid://d8uun1huc7cb" path="res://Scripts/IntroStart.gd" id="1_c47ao"]
 [ext_resource type="FontFile" uid="uid://dvr2m4urmb23h" path="res://Assets/Fonts/PixelifySans-VariableFont_wght.ttf" id="5_22dcc"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kaj3q"]
@@ -16,6 +13,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_c47ao")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=2028187093]
 layout_mode = 1
@@ -24,7 +22,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_oy4r4")
 expand_mode = 2
 metadata/_edit_use_anchors_ = true
 
@@ -51,27 +48,11 @@ theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 metadata/_edit_use_anchors_ = true
 
-[node name="Credits" type="TextureButton" parent="Panel/MarginContainer" unique_id=743067804]
+[node name="Label" type="Label" parent="Panel/MarginContainer" unique_id=469457359]
 layout_mode = 2
-size_flags_horizontal = 4
 size_flags_vertical = 8
-texture_normal = ExtResource("2_53r33")
-texture_pressed = ExtResource("3_oyxpx")
-texture_hover = ExtResource("4_lp5q5")
-
-[node name="CreditsLabel" type="Label" parent="Panel/MarginContainer/Credits" unique_id=642820585]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -11.5
-offset_right = 20.0
-offset_bottom = 11.5
-grow_horizontal = 2
-grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("5_22dcc")
-theme_override_font_sizes/font_size = 40
-text = "MENU"
+theme_override_font_sizes/font_size = 22
+text = "text"
+autowrap_mode = 3

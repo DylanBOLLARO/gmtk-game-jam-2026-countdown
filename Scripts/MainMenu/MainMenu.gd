@@ -5,10 +5,10 @@ extends Control
 
 func _on_play_button_down() -> void:
 	if save_manager.intro_start_has_been_watched:
-		save_manager.intro_start_has_been_watched = true
-		save_manager.save_data()
 		Utils.open_scene(GameEnum.Scene.GAME)
 	else:
+		save_manager.intro_start_has_been_watched = true
+		save_manager.save_data()
 		Utils.open_scene(GameEnum.Scene.INTRO_START)
 
 func _on_credits_button_down() -> void:
